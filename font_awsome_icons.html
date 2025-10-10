@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Font Awsome Icon Explorer</title>
+  <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+  <style>
+    body { font-family: sans-serif; padding: 20px; }
+    .icon-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 10px; }
+    .icon-item { text-align: center; font-size: 24px; }
+    .icon-item p { font-size: 12px; word-break: break-word; }
+  </style>
+</head>
+<body>
+
+  <h1>Material Design Icon Explorer</h1>
+  <div id="iconList" class="icon-grid"></div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const iconContainer = document.getElementById('iconList');
+      const iconClasses = [];
+
+      for (let sheet of document.styleSheets) {
+        try {
+          for (let rule of sheet.cssRules) {
+            if (rule.selectorText && rule.selectorText.includes('.fa-') && rule.selectorText.includes(':before')) {
+              const match = rule.selectorText.match(/\.fa-[\w-]+/);
+              if (match) {
+                const className = match[0].substring(1); // remove dot
+                if (!iconClasses.includes(className)) {
+                  iconClasses.push(className);
+                }
+              }
+            }
+          }
+        } catch (err) {
+          console.warn('Cannot access stylesheet:', sheet.href);
+        }
+      }
+
+      if (iconClasses.length === 0) {
+        iconContainer.innerHTML = "<p>No icons found. Check CSS file path or permissions.</p>";
+        return;
+      }
+
+      iconClasses.sort().forEach(cls => {
+        const div = document.createElement('div');
+        div.classList.add('icon-item');
+        div.innerHTML = `<i class="fa ${cls}"></i><p>${cls}</p>`;
+        iconContainer.appendChild(div);
+      });
+    });
+  </script>
+</body>
+</html>

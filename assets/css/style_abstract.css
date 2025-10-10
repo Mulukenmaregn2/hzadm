@@ -1,0 +1,12 @@
+.school-background {
+  background-image: url('../img/school_building.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100%;
+  alpha: 0.5;
+}
+.stroke-blue{
+  color: rgb(255, 255, 255); 
+  -webkit-text-stroke: 1px rgb(6, 43, 99);
+}

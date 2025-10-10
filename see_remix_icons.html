@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RemixIcon Explorer</title>
+  <link rel="stylesheet" href="assets/css/remixicon.css" />
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 20px;
+    }
+    .icon-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 10px;
+    }
+    .icon-item {
+      text-align: center;
+      font-size: 24px;
+    }
+    .icon-item p {
+      font-size: 12px;
+      word-break: break-all;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>RemixIcon Explorer</h1>
+  <div id="iconList" class="icon-grid"></div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const iconContainer = document.getElementById('iconList');
+      const iconClasses = [];
+
+      for (let sheet of document.styleSheets) {
+        try {
+          if (!sheet.href || sheet.href.includes('remixicon')) {
+            for (let rule of sheet.cssRules) {
+              if (rule.selectorText && rule.selectorText.includes('ri-') && rule.selectorText.includes(':before')) {
+                const match = rule.selectorText.match(/\.ri-[\w-]+/);
+                if (match) {
+                  const className = match[0].substring(1);
+                  if (!iconClasses.includes(className)) {
+                    iconClasses.push(className);
+                  }
+                }
+              }
+            }
+          }
+        } catch (err) {
+          console.warn('Cannot access stylesheet:', sheet.href);
+        }
+      }
+
+      iconClasses.sort().forEach(cls => {
+        const div = document.createElement('div');
+        div.classList.add('icon-item');
+        div.innerHTML = `<i class="${cls}"></i><p>${cls}</p>`;
+        iconContainer.appendChild(div);
+      });
+
+      console.log(`Loaded ${iconClasses.length} icons`);
+    });
+  </script>
+</body>
+</html>

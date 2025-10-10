@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hyranzi School System - Student Allocation</title>
+    <meta name="description" content="A modern school with modern system"/>
+    
+	<link rel="shortcut icon" href="assets/img/hz_logo_sm.png">
+    <link rel="icon" href="assets/img/hz_logo_sm.png" type="image/x-icon">
+	
+	<link href="assets/css/daterangepicker.css" rel="stylesheet" type="text/css" />
+
+	<link href="assets/css/dataTables.bootstrap5.min.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/responsive.bootstrap5.min.css" rel="stylesheet" type="text/css" />
+
+	<link href="assets/css/style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+	<div class="hk-wrapper" data-layout="vertical" data-layout-style="default" data-menu="light" data-footer="simple">
+		<nav class="hk-navbar navbar navbar-expand-xl navbar-light fixed-top">
+			<div class="container-fluid">
+			<div class="nav-start-wrap">
+				<button class="btn btn-icon btn-rounded btn-flush-dark flush-soft-hover navbar-toggle d-xl-none"><span class="icon"><span class="feather-icon"><i data-feather="align-left"></i></span></span></button>
+					
+				<form class="dropdown navbar-search">
+					<div class="dropdown-toggle no-caret" data-bs-toggle="dropdown" data-dropdown-animation data-bs-auto-close="outside">
+						<a href="#" class="btn btn-icon btn-rounded btn-flush-dark flush-soft-hover d-xl-none"><span class="icon"><span class="feather-icon"><i data-feather="search"></i></span></span></a>
+						<div class="input-group d-xl-flex d-none">
+							<span class="input-affix-wrapper input-search affix-border">
+								<input type="text" class="form-control bg-transparent" data-navbar-search-close="false" placeholder="Search..." aria-label="Search">
+								
+							</span>
+						</div>
+					</div>
+				</form>
+				</div>
+			<div class="nav-end-wrap">
+			</div>
+			</div>									
+		</nav>
+		<div class="hk-menu">
+			<div class="menu-header">
+				<span>
+					<a class="navbar-brand d-flex align-items-center" href="index.html">
+						<img class="brand-img img-fluid" style="width: 45px; height: 45px; margin-right: 10px;" src="assets/img/hz_logo_md.png" alt="brand" />
+						<div class="d-inline-block nav-link-text">
+							<b class="mb-0" style="color: #9b5e02; margin-bottom: 0px;">Hyranzi</b>
+							<div class="fs-7 text-muted mt-0">School System</div>
+						</div>
+					</a>
+					<button class="btn btn-icon btn-rounded btn-flush-dark flush-soft-hover navbar-toggle">
+						<span class="icon">
+							<span class="svg-icon fs-5">
+								<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-bar-to-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+									<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+									<line x1="10" y1="12" x2="20" y2="12"></line>
+									<line x1="10" y1="12" x2="14" y2="16"></line>
+									<line x1="10" y1="12" x2="14" y2="8"></line>
+									<line x1="4" y1="4" x2="4" y2="20"></line>
+								</svg>
+							</span>
+						</span>
+					</button>
+				</span>
+			</div>
+			<div data-simplebar class="nicescroll-bar">
+			</div>
+			</div>
+        <div id="hk_menu_backdrop" class="hk-menu-backdrop"></div>
+        <div class="hk-pg-wrapper">
+			<div class="container-xxl">
+				<div class="hk-pg-header pg-header-wth-tab pt-7">
+					<div class="d-flex">
+						<div class="d-flex flex-wrap justify-content-between flex-1">
+							<div class="mb-lg-0 mb-2 me-8">
+								<h1 class="pg-title"><i class="ri-git-merge-line me-1"></i>Student Allocation</h1>
+								<p>Allocate to designated grade and class registered students here.</p>
+							</div>
+						</div>
+					</div>
+					<ul id="main-grade-tabs" class="nav nav-line nav-light nav-tabs border-bottom">
+						<li class="nav-item">
+							<a class="nav-link active" data-grade-key="grade9" data-grade-val="9" href="#">
+								<span class="nav-link-text">Grade 9</span>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" data-grade-key="grade10" data-grade-val="10" href="#">
+								<span class="nav-link-text">Grade 10</span>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" data-grade-key="grade11-natural" data-grade-val="11" href="#">
+								<span class="nav-link-text">Grade 11 Natural</span>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" data-grade-key="grade11-social" data-grade-val="11" href="#">
+								<span class="nav-link-text">Grade 11 Social</span>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" data-grade-key="grade12-natural" data-grade-val="12" href="#">
+								<span class="nav-link-text">Grade 12 Natural</span>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" data-grade-key="grade12-social" data-grade-val="12" href="#">
+								<span class="nav-link-text">Grade 12 Social</span>
+							</a>
+						</li>
+					</ul>
+				</div>
+				<div class="card text-center mt-2">
+                    <div class="card-header bg-primary-light-4">
+						<ul id="class-tabs" class="nav nav-tabs card-header-tabs">
+							</ul>
+					</div>
+					<div class="card-body p-0">
+						<div class="table-responsive">
+							<table id="student_allocation_table" class="table table-striped table-bordered w-100">
+								<thead>
+									<tr>
+										<th>Student ID</th>
+										<th>Student Name</th>
+										<th>Grade</th>
+										<th>Class</th>
+										<th>Action</th>
+									</tr>
+								</thead>
+								<tbody>
+									</tbody>
+							</table>
+						</div>
+						<div id="table-info" class="p-3 text-muted">Select a grade and class to view students.</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+    <script src="assets/js/sidebar.js"></script>
+	<script type="module" src="assets/js/side.state.js"></script>
+	<script>
+		// Assuming gowindow is defined in the side.state.js module or elsewhere
+		// gowindow('Student Allocation');
+	</script>
+
+	<script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/feather.min.js"></script>
+    <script src="assets/js/dropdown-bootstrap-extended.js"></script>
+	<script src="assets/js/simplebar.min.js"></script>
+	<script src="assets/js/dataTables.min.js"></script>
+    <script src="assets/js/dataTables.bootstrap5.min.js"></script>
+	<script src="assets/js/dataTables.select.min.js"></script>
+	<script src="assets/js/moment.min.js"></script>
+	<script src="assets/js/daterangepicker.js"></script>
+	<script src="assets/js/daterangepicker-data.js"></script>
+	<script src="lib/5/map.js"></script>	
+	<script src="lib/5/geodata/worldLow.js"></script>
+	<script src="lib/5/themes/Animated.js"></script>
+	<script src="assets/js/apexcharts.min.js"></script>
+	<script src="assets/js/init.js"></script>
+	<script src="assets/js/chips-init.js"></script>
+
+	<script type="module">import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.2/firebase-app.js";
+import { getDatabase, ref, get, update } from "https://www.gstatic.com/firebasejs/9.6.2/firebase-database.js";
+
+const firebaseConfig = {
+    apiKey: "AIzaSyAJXtAhCNGsDci-w1ww8gwGu23aAE6L_CM",
+    authDomain: "hyranzi.firebaseapp.com",
+    databaseURL: "https://hyranzi-default-rtdb.firebaseio.com",
+    projectId: "hyranzi",
+    storageBucket: "hyranzi.firebasestorage.app",
+    messagingSenderId: "545023994494",
+    appId: "1:545023994494:web:eb2028aa0d4423f51a062f",
+    measurementId: "G-Y9G3FY6HJ0"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getDatabase(app);
+
+const tbody = document.querySelector('#student_allocation_table tbody');
+
+// State Variables for Filtering
+let activeGradeKey = 'grade9'; 
+let activeGradeValue = '9'; 
+let activeClass = 'Unallocated';
+
+// --- Core Functions ---
+
+/**
+ * Sets up event listeners for the main grade tabs.
+ */
+function setupGradeTabs() {
+    document.querySelectorAll('#main-grade-tabs .nav-link').forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Update active state for main tabs
+            document.querySelectorAll('#main-grade-tabs .nav-link').forEach(l => l.classList.remove('active'));
+            this.classList.add('active');
+
+            // Update active state variables
+            activeGradeKey = this.getAttribute('data-grade-key');
+            activeGradeValue = this.getAttribute('data-grade-val');
+            activeClass = 'Unallocated'; // Reset to Unallocated view
+            
+            // Load classes and then students for the new grade
+            loadClassesForGrade(activeGradeKey);
+        });
+    });
+}
+
+/**
+ * Fetches registered classes for the active grade and dynamically builds class tabs.
+ */
+async function loadClassesForGrade(gradeKey) {
+    const classTabsContainer = document.getElementById('class-tabs');
+    classTabsContainer.innerHTML = ''; 
+
+    // Always add 'Unallocated' tab first and set it as active
+    const unallocatedTab = document.createElement('li');
+    unallocatedTab.className = 'nav-item';
+    unallocatedTab.innerHTML = `<a class="nav-link active" data-class-name="Unallocated" href="#">Unallocated</a>`;
+    classTabsContainer.appendChild(unallocatedTab);
+
+    // Get registered classes from Firebase
+    try {
+        const classesRef = ref(db, `classes/${gradeKey}`);
+        const snap = await get(classesRef);
+        const classes = snap.val();
+
+        console.log("Classes found:", classes); // Debug log
+
+        if (classes) {
+            Object.entries(classes).forEach(([key, data]) => {
+                const classTab = document.createElement('li');
+                classTab.className = 'nav-item';
+                classTab.innerHTML = `<a class="nav-link" data-class-name="${data.name}" href="#">${data.name}</a>`;
+                classTabsContainer.appendChild(classTab);
+            });
+        }
+    } catch (err) {
+        console.error("Error loading classes:", err);
+    }
+
+    // Setup handlers for the new tabs and load the initial 'Unallocated' student list
+    setupClassTabs(classTabsContainer);
+    loadStudents(activeGradeValue, activeClass);
+}
+
+/**
+ * Sets up event handlers for the dynamically created class tabs.
+ */
+function setupClassTabs(container) {
+    container.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Update active state for class tabs
+            container.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+            this.classList.add('active');
+
+            activeClass = this.getAttribute('data-class-name');
+            
+            // Load students based on the selected class
+            loadStudents(activeGradeValue, activeClass);
+        });
+    });
+}
+
+/**
+ * Fetches and displays students filtered by active grade and active class/section.
+ */
+async function loadStudents(gradeValue, className) {
+    tbody.innerHTML = '<tr><td colspan="5" class="text-center">Loading students...</td></tr>';
+    document.getElementById('table-info').textContent = `Showing students for Grade ${gradeValue}, Class: ${className}`;
+
+    try {
+        const snap = await get(ref(db, 'Students List'));
+        if (!snap.exists()) {
+            throw new Error("No students found in 'Students List'.");
+        }
+
+        const allStudents = snap.val();
+        let filteredStudents = [];
+
+        // Flatten and filter:
+        Object.entries(allStudents).forEach(([batch, group]) => {
+            if (!group) return;
+            Object.entries(group).forEach(([uid, data]) => {
+                const student = Object.assign({}, data);
+                student._uid = uid;
+                student._batch = batch;
+
+                // Filter by Grade
+                if (student.gr === gradeValue) {
+                    const isAllocated = student.section && student.section !== 'unallocated';
+
+                    if (className === 'Unallocated' && !isAllocated) {
+                        filteredStudents.push(student);
+                    } else if (isAllocated && student.section === className) {
+                        filteredStudents.push(student);
+                    }
+                }
+            });
+        });
+
+        // Render table rows
+        let html = '';
+        if (filteredStudents.length === 0) {
+            html += `<tr><td colspan="5" class="text-center text-muted">No students in ${className} section for Grade ${gradeValue}.</td></tr>`;
+        } else {
+            filteredStudents.forEach(s => {
+                html += createStudentRow(s, className);
+            });
+        }
+
+        tbody.innerHTML = html;
+        attachHandlers(className);
+
+    } catch (err) {
+        console.error(err);
+        tbody.innerHTML = `<tr><td colspan="5" class="text-center text-danger">Error loading students: ${err.message}</td></tr>`;
+    }
+}
+/**
+ * Creates the HTML table row for a single student.
+ */
+function createStudentRow(s, currentView) {
+    // Student Name is stored as 'First:Middle:Last' or use enm if available
+    let studentName = 'N/A';
+    if (s.fnm) {
+        studentName = s.fnm.split(":").join(' ');
+    } else if (s.enm) {
+        studentName = s.enm;
+    }
+    
+    // Student ID
+    const studentId = s.sid || s._uid.substring(0, 8);
+    
+    // Current section (using 'sec' field from your database)
+    const currentSection = s.sec || 'unallocated';
+    
+    let actionCell;
+    let classCell;
+
+    if (currentView === 'Unallocated') {
+        // Show class selector and Allocate button
+        const classTabs = document.querySelectorAll('#class-tabs .nav-link');
+        const availableClasses = Array.from(classTabs)
+            .filter(tab => tab.getAttribute('data-class-name') !== 'Unallocated')
+            .map(tab => tab.getAttribute('data-class-name'));
+
+        const options = availableClasses.map(cls => `<option value="${cls}">${cls}</option>`).join('');
+
+        classCell = currentSection !== 'unallocated' ? currentSection : 'Unallocated';
+        actionCell = `<td>
+                        <select class="form-select form-select-sm alloc-section me-2" style="width:100px; display:inline-block;">
+                            <option value="">Select Class</option>
+                            ${options}
+                        </select>
+                        <button class="btn btn-success btn-sm btn-allocate" data-uid="${s._uid}" data-batch="${s._batch}">Allocate</button>
+                    </td>`;
+
+    } else {
+        // Show class name and Unallocate button
+        classCell = currentSection !== 'unallocated' ? currentSection : 'Unallocated';
+        actionCell = `<td>
+                        <button class="btn btn-danger btn-sm btn-unallocate" data-uid="${s._uid}" data-batch="${s._batch}">Unallocate</button>
+                    </td>`;
+    }
+
+    return `<tr data-uid="${s._uid}" data-batch="${s._batch}">
+                <td>${studentId}</td>
+                <td>${studentName}</td>
+                <td>${s.gr || 'N/A'}</td>
+                <td>${classCell}</td>
+                ${actionCell}
+            </tr>`;
+}
+
+/**
+ * Attaches click handlers to the Allocate or Unallocate buttons.
+ */
+function attachHandlers(className) {
+    if (className === 'Unallocated') {
+        document.querySelectorAll('.btn-allocate').forEach(btn => {
+            btn.removeEventListener('click', onAllocate);
+            btn.addEventListener('click', onAllocate);
+        });
+    } else {
+        document.querySelectorAll('.btn-unallocate').forEach(btn => {
+            btn.removeEventListener('click', onUnallocate);
+            btn.addEventListener('click', onUnallocate);
+        });
+    }
+}
+
+/**
+ * Handles student allocation, updating 'Students List'.
+ */
+async function onAllocate(evt) {
+    const btn = evt.currentTarget;
+    const tr = btn.closest('tr');
+    const uid = btn.getAttribute('data-uid');
+    const batch = btn.getAttribute('data-batch');
+    const sectionSelect = tr.querySelector('.alloc-section');
+    const section = sectionSelect ? sectionSelect.value : null;
+
+    if (!section) {
+        alert('Please select a class before allocating.');
+        return;
+    }
+
+    btn.disabled = true;
+    btn.innerText = 'Allocating...';
+
+    try {
+        const studentsListPath = `Students List/${batch}/${uid}`;
+        const updates = {};
+        
+        // Update the 'sec' field in the student's main record (based on your database structure)
+        updates[`${studentsListPath}/sec`] = section;
+
+        await update(ref(db), updates);
+        alert(`Student allocated to ${section} successfully!`);
+        await loadStudents(activeGradeValue, activeClass); // Reload current view
+    } catch (err) {
+        console.error("Allocation error:", err);
+        alert('Allocation failed. See console for details.');
+        btn.disabled = false;
+        btn.innerText = 'Allocate';
+    }
+}
+
+/**
+ * Handles student unallocation.
+ */
+async function onUnallocate(evt) {
+    const btn = evt.currentTarget;
+    const uid = btn.getAttribute('data-uid');
+    const batch = btn.getAttribute('data-batch');
+
+    if (!confirm(`Are you sure you want to unallocate this student from ${activeClass}?`)) return;
+
+    btn.disabled = true;
+    btn.innerText = 'Unallocating...';
+
+    try {
+        const studentsListPath = `Students List/${batch}/${uid}`;
+        const updates = {};
+
+        // Set 'sec' back to 'unallocated'
+        updates[`${studentsListPath}/sec`] = 'unallocated';
+
+        await update(ref(db), updates);
+        alert(`Student unallocated from ${activeClass} successfully!`);
+        await loadStudents(activeGradeValue, activeClass); // Reload current view
+    } catch (err) {
+        console.error("Unallocation error:", err);
+        alert('Unallocation failed. See console for details.');
+        btn.disabled = false;
+        btn.innerText = 'Unallocate';
+    }
+}
+
+// --- Initialization ---
+document.addEventListener('DOMContentLoaded', () => {
+    setupGradeTabs();
+    // Initial call to load classes and then students for the default active grade (Grade 9)
+    loadClassesForGrade(activeGradeKey);
+});
+	</script>
+</body>
+</html>

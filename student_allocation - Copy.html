@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Hyranzi School System – Student Allocation</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body class="p-4">
+  <div class="container">
+    <h2 class="mb-4 text-center text-primary">🎓 Student Allocation</h2>
+
+    <div class="mb-3">
+      <label for="gradeSelect" class="form-label fw-bold">Select Grade</label>
+      <select id="gradeSelect" class="form-select w-auto">
+        <option value="">All Grades</option>
+        <option value="G9">Grade 9</option>
+        <option value="G10">Grade 10</option>
+        <option value="G11">Grade 11</option>
+        <option value="G12">Grade 12</option>
+      </select>
+    </div>
+
+    <table class="table table-bordered table-striped align-middle text-center">
+      <thead class="table-dark">
+        <tr>
+          <th>Student Name</th>
+          <th>Grade</th>
+          <th>Current Section</th>
+          <th>Allocate To</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody id="studentTable">
+        <tr><td colspan="5">Loading...</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.2/firebase-app.js";
+import { getDatabase, ref, get, update } from "https://www.gstatic.com/firebasejs/9.6.2/firebase-database.js";
+
+// ✅ Firebase Config
+const firebaseConfig = {
+  apiKey: "AIzaSyAJXtAhCNGsDci-w1ww8gwGu23aAE6L_CM",
+  authDomain: "hyranzi.firebaseapp.com",
+  databaseURL: "https://hyranzi-default-rtdb.firebaseio.com",
+  projectId: "hyranzi",
+  storageBucket: "hyranzi.firebasestorage.app",
+  messagingSenderId: "545023994494",
+  appId: "1:545023994494:web:eb2028aa0d4423f51a062f",
+};
+const app = initializeApp(firebaseConfig);
+const db = getDatabase(app);
+
+const tableBody = document.getElementById('studentTable');
+const gradeSelect = document.getElementById('gradeSelect');
+
+// 🔹 Fetch Classes from DB
+let sectionsByGrade = {};
+async function loadClasses() {
+  const snap = await get(ref(db, 'classes'));
+  if (!snap.exists()) return;
+  const data = snap.val();
+  sectionsByGrade = {};
+
+  Object.keys(data).forEach(k => {
+    const item = data[k];
+    if (item.grade && item.sectionName) {
+      const g = item.grade;
+      sectionsByGrade[g] = sectionsByGrade[g] || [];
+      sectionsByGrade[g].push(item.sectionName);
+    } else if (k.startsWith('grade')) {
+      const grade = 'Grade ' + k.replace('grade', '');
+      const subs = Object.values(item).map(v => v.name);
+      sectionsByGrade[grade] = subs;
+    }
+  });
+}
+
+// 🔹 Fetch Students
+async function loadStudents(gradeFilter = "") {
+  tableBody.innerHTML = '<tr><td colspan="5">Loading...</td></tr>';
+  const snap = await get(ref(db, 'Students List'));
+  if (!snap.exists()) {
+    tableBody.innerHTML = '<tr><td colspan="5" class="text-muted">No students found</td></tr>';
+    return;
+  }
+
+  const list = snap.val();
+  let students = [];
+  Object.entries(list).forEach(([batch, data]) => {
+    Object.entries(data).forEach(([id, s]) => {
+      s._id = id;
+      s._batch = batch;
+      students.push(s);
+    });
+  });
+
+  if (gradeFilter) students = students.filter(s => s.gr === gradeFilter);
+
+  renderStudents(students);
+}
+
+// 🔹 Render Student Rows
+function renderStudents(students) {
+  if (!students.length) {
+    tableBody.innerHTML = '<tr><td colspan="5" class="text-muted">No matching students</td></tr>';
+    return;
+  }
+
+  let html = '';
+  students.forEach(s => {
+    const gradeName = s.gr || 'N/A';
+    const sectionList = sectionsByGrade['Grade ' + gradeName.replace('G', '')] || ['A', 'B', 'C'];
+    const secOptions = sectionList.map(sec => 
+      `<option value="${sec}" ${s.sec === sec ? 'selected' : ''}>${sec}</option>`).join('');
+    html += `
+      <tr data-id="${s._id}" data-batch="${s._batch}">
+        <td>${s.fnm ? s.fnm.replace(/:/g, ' ') : s._id}</td>
+        <td>${gradeName}</td>
+        <td>${s.sec || 'Unallocated'}</td>
+        <td>
+          <select class="form-select form-select-sm w-auto">${secOptions}</select>
+        </td>
+        <td>
+          <button class="btn btn-${s.sec && s.sec !== 'unallocated' ? 'danger' : 'success'} btn-sm allocateBtn">
+            ${s.sec && s.sec !== 'unallocated' ? 'Unallocate' : 'Allocate'}
+          </button>
+        </td>
+      </tr>`;
+  });
+  tableBody.innerHTML = html;
+
+  // Add event listeners
+  document.querySelectorAll('.allocateBtn').forEach(btn => {
+    btn.onclick = handleAllocate;
+  });
+}
+
+// 🔹 Handle Allocate/Unallocate
+async function handleAllocate(e) {
+  const tr = e.target.closest('tr');
+  const id = tr.dataset.id;
+  const batch = tr.dataset.batch;
+  const select = tr.querySelector('select');
+  const selected = select.value;
+
+  const path = `Students List/${batch}/${id}`;
+  const current = tr.cells[2].innerText;
+
+  e.target.disabled = true;
+  e.target.innerText = current === 'Unallocated' ? 'Allocating...' : 'Unallocating...';
+
+  try {
+    await update(ref(db, path), { sec: current === 'Unallocated' ? selected : 'unallocated' });
+    await loadStudents(gradeSelect.value);
+  } catch (err) {
+    alert('Error updating student: ' + err);
+  }
+}
+
+// 🔹 Initialize
+(async function init() {
+  await loadClasses();
+  await loadStudents();
+
+  gradeSelect.addEventListener('change', e => {
+    loadStudents(e.target.value);
+  });
+})();
+</script>
+</body>
+</html>

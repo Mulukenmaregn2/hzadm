@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta Tags -->
+	<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hyranzi School System</title>
+    <meta name="description" content="A modern school with modern system"/>
+    
+	<!-- Favicon -->
+    <link rel="shortcut icon" href="assets/img/hz_logo_sm.png">
+    <link rel="icon" href="assets/img/hz_logo_sm.png" type="image/x-icon">
+	
+	<!-- Daterangepicker CSS -->
+    <link href="assets/css/daterangepicker.css" rel="stylesheet" type="text/css" />
+
+	<!-- Data Table CSS -->
+    <link href="assets/css/dataTables.bootstrap5.min.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/responsive.bootstrap5.min.css" rel="stylesheet" type="text/css" />
+
+	<!-- CSS -->
+    <link href="assets/css/style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+	<!-- Wrapper -->
+	<div class="hk-wrapper" data-layout="vertical" data-layout-style="default" data-menu="light" data-footer="simple">
+		<!-- Top Navbar -->
+		<nav class="hk-navbar navbar navbar-expand-xl navbar-light fixed-top">
+			<div class="container-fluid">
+			<!-- Start Nav -->
+			<div class="nav-start-wrap">
+				<button class="btn btn-icon btn-rounded btn-flush-dark flush-soft-hover navbar-toggle d-xl-none"><span class="icon"><span class="feather-icon"><i data-feather="align-left"></i></span></span></button>
+					
+				<!-- Search -->
+				<form class="dropdown navbar-search">
+					<div class="dropdown-toggle no-caret" data-bs-toggle="dropdown" data-dropdown-animation data-bs-auto-close="outside">
+						<a href="#" class="btn btn-icon btn-rounded btn-flush-dark flush-soft-hover  d-xl-none"><span class="icon"><span class="feather-icon"><i data-feather="search"></i></span></span></a>
+						<div class="input-group d-xl-flex d-none">
+							<span class="input-affix-wrapper input-search affix-border">
+								<input type="text" class="form-control  bg-transparent"  data-navbar-search-close="false" placeholder="Search..." aria-label="Search">
+								
+							</span>
+						</div>
+					</div>
+				</form>
+				<!-- /Search -->
+			</div>
+			<!-- /Start Nav -->
+			
+			<!-- End Nav -->
+			<div class="nav-end-wrap">
+			</div>
+			<!-- /End Nav -->
+			</div>									
+		</nav>
+		<!-- /Top Navbar -->
+
+    <!-- Vertical Nav -->
+    <div class="hk-menu">
+			<!-- Brand -->
+			<div class="menu-header">
+				<span>
+					<a class="navbar-brand d-flex align-items-center" href="index.html">
+						<img class="brand-img img-fluid" style="width: 45px; height: 45px; margin-right: 10px;" src="assets/img/hz_logo_md.png" alt="brand" />
+						<div class="d-inline-block nav-link-text">
+							<b class="mb-0" style="color: #9b5e02; margin-bottom: 0px;">Hyranzi</b>
+							<div class="fs-7 text-muted mt-0">School System</div>
+						</div>
+					</a>
+					<button class="btn btn-icon btn-rounded btn-flush-dark flush-soft-hover navbar-toggle">
+						<span class="icon">
+							<span class="svg-icon fs-5">
+								<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-bar-to-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+									<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+									<line x1="10" y1="12" x2="20" y2="12"></line>
+									<line x1="10" y1="12" x2="14" y2="16"></line>
+									<line x1="10" y1="12" x2="14" y2="8"></line>
+									<line x1="4" y1="4" x2="4" y2="20"></line>
+								</svg>
+							</span>
+						</span>
+					</button>
+				</span>
+			</div>
+			<!-- /Brand -->
+
+			<!-- Main Menu -->
+			<div data-simplebar class="nicescroll-bar">
+			</div>
+			<!-- /Main Menu -->
+		</div>
+        <div id="hk_menu_backdrop" class="hk-menu-backdrop"></div>
+        <!-- /Vertical Nav -->
+
+
+		<!-- Main Content -->
+		<div class="hk-pg-wrapper">
+			<div class="container-xxl">
+				<!-- Page Header -->
+				<div class="hk-pg-header pg-header-wth-tab pt-7">
+					<div class="d-flex">
+						<div class="d-flex flex-wrap justify-content-between flex-1">
+							<div class="mb-lg-0 mb-2 me-8">
+								<h1 class="pg-title"><i class="ri-book-3-line me-1"></i>Subject Registration</h1>
+								<p>Register subjects that students learn in each grade.</p>
+							</div>
+						</div>
+					</div>
+					<ul class="nav nav-line nav-light nav-tabs border-bottom mglist">
+						<li class="nav-item">
+							<a class="nav-link active" data-bs-toggle="tab" href="/G9">
+								<span class="nav-link-text">Grade 9</span>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" data-bs-toggle="tab" href="/G10">
+								<span class="nav-link-text">Grade 10</span>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" data-bs-toggle="tab" href="/G11NS">
+								<span class="nav-link-text">Grade 11 Natural</span>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" data-bs-toggle="tab" href="/G11SS">
+								<span class="nav-link-text">Grade 11 Social</span>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" data-bs-toggle="tab" href="/G12NS">
+								<span class="nav-link-text">Grade 12 Natural</span>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" data-bs-toggle="tab" href="/G12SS">
+								<span class="nav-link-text">Grade 12 Social</span>
+							</a>
+						</li>
+					</ul>
+				</div>
+				<!-- /Page Header -->
+
+				<!-- Page Body -->
+				<div>
+					<div class="tab-content">
+						<div class="tab-pane fade show active" id="grade-9">
+							<div class="row">
+								<div class="col-lg-12">
+									<div class="card">
+										<div class="card-header">
+											<h6 class="card-title cog">Subject Registration for Grade 9</h6>
+										</div>
+										<div class="card-body">
+											<form>
+												<div class="row">
+													<div class="col-lg-6">
+														<div class="form-group">
+															<label for="subjectName">Subject Name</label>
+															<input type="text" class="form-control" id="subjectName" placeholder="Enter subject name">
+														</div>
+													</div>
+													<div class="col-lg-6">
+														<div class="form-group">
+															<label for="subjectCode">Subject Code</label>
+															<input type="text" class="form-control" id="subjectCode" placeholder="Enter subject code">
+														</div>
+													</div>
+										      <div class="col-lg-6 mb-2">
+											      <label for="subjectDepartment" class="form-label">Department Under</label>
+											      <select class="form-select" id="subjectDepartment" required>
+												      <option value="">Select</option>
+											      </select>
+										      </div>
+												</div>
+												<div class="d-none m-1 error text-danger"></div>
+												<button type="submit" class="btn btn-primary">Register Subject</button>
+											</form>
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-12 mt-4">
+									<div class="card">
+										<div class="card-header">
+											<h6 class="card-title cog">Grade 9 Registered Subjects List</h6>
+										</div>
+										<div class="card-body p-0">
+											<table class="table table-striped table-bordered">
+												<thead>
+													<tr>
+														<th>Subject Name</th>
+														<th>Subject Code</th>
+														<th>Department Under</th>
+														<th>Actions</th>
+													</tr>
+												</thead>
+												<tbody>
+												</tbody>
+											</table>
+											<p class="text-muted">Loading...</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!--div class="tab-pane fade" id="grade-11-natural">
+							Content for Grade 11 Natural
+							<p>Content for Grade 11 Natural will be added here.</p>
+						</div-->
+					</div>
+				</div>
+		<!-- /Main Content -->
+	</div>
+    <!-- /Wrapper -->
+    <script src="assets/js/sidebar.js"></script>
+		<script type="module" src="assets/js/side.state.js"></script>
+		<script>
+			gowindow('Class Registration');
+		</script>
+
+	<!-- jQuery -->
+    <script src="assets/js/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JS -->
+   	<script src="assets/js/bootstrap.bundle.min.js"></script>
+
+    <!-- FeatherIcons JS -->
+    <script src="assets/js/feather.min.js"></script>
+
+    <!-- Fancy Dropdown JS -->
+    <script src="assets/js/dropdown-bootstrap-extended.js"></script>
+
+	<!-- Simplebar JS -->
+	<script src="assets/js/simplebar.min.js"></script>
+	
+	<!-- Data Table JS -->
+    <script src="assets/js/dataTables.min.js"></script>
+    <script src="assets/js/dataTables.bootstrap5.min.js"></script>
+	<script src="assets/js/dataTables.select.min.js"></script>
+
+	<!-- Daterangepicker JS -->
+    <script src="assets/js/moment.min.js"></script>
+	<script src="assets/js/daterangepicker.js"></script>
+	<script src="assets/js/daterangepicker-data.js"></script>
+
+	<!-- Amcharts Maps JS -->
+	<script src="lib/5/map.js"></script> 
+	<script src="lib/5/geodata/worldLow.js"></script>
+	<script src="lib/5/themes/Animated.js"></script>
+
+	<!-- Apex JS -->
+	<script src="assets/js/apexcharts.min.js"></script>
+
+	<!-- Init JS -->
+	<script src="assets/js/init.js"></script>
+	<script src="assets/js/chips-init.js"></script>
+	<script type="module">
+    import { initializeApp, deleteApp } from "https://www.gstatic.com/firebasejs/9.6.2/firebase-app.js";
+    import { getAuth, onAuthStateChanged, createUserWithEmailAndPassword, updateProfile, signOut } from "https://www.gstatic.com/firebasejs/9.6.2/firebase-auth.js";
+    import { getDatabase, get, ref, update, push, set, serverTimestamp, onValue, off, remove } from "https://www.gstatic.com/firebasejs/9.6.2/firebase-database.js";
+    let openedclass = "G9";
+		  let subjed   ={};
+		const firebaseConfig = {
+      apiKey: "AIzaSyAJXtAhCNGsDci-w1ww8gwGu23aAE6L_CM",
+      authDomain: "hyranzi.firebaseapp.com",
+      databaseURL: "https://hyranzi-default-rtdb.firebaseio.com",
+      projectId: "hyranzi",
+      storageBucket: "hyranzi.firebasestorage.app",
+      messagingSenderId: "545023994494",
+      appId: "1:545023994494:web:eb2028aa0d4423f51a062f",
+      measurementId: "G-Y9G3FY6HJ0"
+		};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const db = getDatabase(app);
+const GRADE_9_CLASSES_REF = "Classes/G9"; // Database path for Grade 9 classes
+
+// --- DOM Elements ---
+const registrationForm = document.querySelector('#grade-9 form');
+const classNameInput = document.getElementById('subjectName');
+const departmentInput = document.getElementById('subjectCode');
+const capacityInput = document.getElementById('subjectDepartment');
+const classesTableBody = document.querySelector('#grade-9 .card-body table tbody');
+const totalClassesText = document.querySelector('#grade-9 .card-body p.text-muted');
+const tabLinks = document.querySelectorAll('.nav-line .nav-link');
+const tabPanes = document.querySelectorAll('.tab-content .tab-pane');
+let clref = "Subjects/G9";
+
+// --- Helper Functions ---
+
+/**
+ * Renders a single class row in the table.
+ * @param {string} key - The unique Firebase key for the class.
+ * @param {object} classData - The class object {name, capacity}.
+ * @returns {string} The HTML for the table row.
+ */
+function createClassRow(key, classData) {
+    return `
+        <tr data-class-key="${key}">
+            <td>${key}</td>
+            <td>${classData}</td>
+            <td>
+                <button class="btn btn-danger btn-sm delete-class-btn" data-class-key="${key}">Delete</button>
+            </td>
+        </tr>
+    `;
+}
+
+/**
+ * Handles the tab switching logic.
+ */
+function setupTabSwitching() {
+    tabLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+
+            // Deactivate all links and panes
+            // tabLinks.forEach(l => l.classList.remove('active'));
+            // tabPanes.forEach(p => p.classList.remove('show', 'active'));
+
+            // Activate the clicked link
+            // link.classList.add('active');
+            // Determine the target pane ID (e.g., from the href attribute)
+            const targetId = link.getAttribute('href').substring(1);
+						// alert(targetId);
+            const targetPane = document.getElementById(targetId);
+						var coga = document.querySelectorAll(".cog");
+            // Activate the target pane
+            if (targetPane) {
+                //targetPane.classList.add('show', 'active');
+            }
+						if(targetId == "G9"){
+		          clref ="Subjects/G9";
+           updatetb(classed, clref);
+							coga[0].innerText="Class Registration for Grade 9";
+							coga[1].innerText="Grade 9 Registered Classes List";
+						} else if(targetId == "G10"){
+		          clref ="Subjects/G10";
+           updatetb(classed, clref);
+							coga[0].innerText="Class Registration for Grade 10";
+							coga[1].innerText="Grade 10 Registered Classes List";
+						} else if(targetId == "G11NS"){
+		          clref ="Subjects/G11NS";
+           updatetb(classed, clref);
+							coga[0].innerText="Class Registration for Grade 11 Natural Science";
+							coga[1].innerText="Grade 11 Natural Science Registered Classes List";
+						} else if(targetId == "G11SS"){
+		          clref ="Subjects/G11SS";
+           updatetb(classed, clref);
+							coga[0].innerText="Class Registration for Grade 11 Social Science";
+							coga[1].innerText="Grade 11 Social Science Registered Classes List";
+						} else if(targetId == "G12NS"){
+		          clref ="Subjects/G12NS";
+           updatetb(classed, clref);
+							coga[0].innerText="Class Registration for Grade 12 Natural Science";
+							coga[1].innerText="Grade 12 Natural Science Registered Classes List";
+						} else if(targetId == "G12SS"){
+		          clref ="Subjects/G12SS";
+           updatetb(classed, clref);
+							coga[0].innerText="Class Registration for Grade 12 Social Science";
+							coga[1].innerText="Grade 12 Social Science Registered Classes List";
+						}
+        });
+    });
+}
+
+function registerClass(name, capacity) {
+    document.querySelector('#grade-9 .error')?.classList?.add('d-none');
+    if (!name || capacity <= 0) {
+        document.querySelector('#grade-9 .error').textContent = 'Please enter a valid subject name code and department.';
+        document.querySelector('#grade-9 .error').classList.remove('d-none');
+        return;
+    }
+		const loginButton = document.querySelector("form button[type='submit']");
+		loginButton.innerText = "Registering...";
+    loginButton.disabled = true;
+    var classin={};
+		classin[name]=capacity;
+    const newClassRef = update(ref(db, clref), classin)
+    .then(() => {
+      registrationForm.reset(); // Clear the form
+    })
+    .catch((error) => {
+      document.querySelector('#grade-9 .error').textContent = 'Failed to register class.';
+      document.querySelector('#grade-9 .error').classList.remove('d-none');
+    }).finally(()=>{
+      loginButton.disabled = false;
+		  loginButton.innerText = "Register";
+    });
+}
+
+/**
+ * Deletes a class from the database.
+ * @param {string} classKey - The Firebase key of the class to delete.
+ */
+function deleteClass(classKey) {
+    if (confirm("Are you sure you want to delete this class? This action cannot be undone.")) {
+        const classRef = ref(db, `${GRADE_9_CLASSES_REF}/${classKey}`);
+        remove(classRef)
+            .then(() => {
+                // UI update is handled by the onValue listener
+                alert("Class deleted successfully!");
+            })
+            .catch((error) => {
+                console.error("Error deleting class: ", error);
+                alert("Failed to delete class. See console for details.");
+            });
+    }
+}
+
+
+/**
+ * Sets up a real-time listener to fetch and display classes.
+ */
+function setupRealTimeListener() {
+    const subjectsRef = ref(db, "Subjects");
+    
+    // Listen for data changes in real-time
+    onValue(subjectsRef, (snapshot) => {
+        subjed = snapshot.val();
+        if (subjed) {
+            updatetb(subjed,clref);
+
+        } else {
+            // Handle case with no classes
+            classesTableBody.innerHTML = '<tr><td colspan="5" class="text-center">No classes registered yet for this grade.</td></tr>';
+            totalClassesText.textContent = `Total Classes: 0`;
+        }
+
+        // Re-attach delete listeners after the table has been repopulated
+        setupDeleteListeners();
+
+    }, (error) => {
+        console.error("Error fetching classes: ", error);
+        classesTableBody.innerHTML = `<tr><td colspan="5" class="text-center text-danger">Error loading classes.</td></tr>`;
+    });
+}
+
+/**
+ * Sets up event listeners for delete buttons.
+ * This needs to be called after the table content is updated.
+ */
+function setupDeleteListeners() {
+    // Select all newly created delete buttons
+    document.querySelectorAll('.delete-class-btn').forEach(button => {
+        button.addEventListener('click', (e) => {
+            const classKey = e.target.dataset.classKey;
+            deleteClass(classKey);
+        });
+    });
+}
+
+// --- Event Listeners and Initialization ---
+
+// 1. Handle Form Submission
+registrationForm.addEventListener('submit', (e) => {
+    e.preventDefault(); // Stop the default form submission
+    
+    const className = classNameInput.value.trim();
+    const capacity = parseInt(capacityInput.value, 10);
+    
+    registerClass(className, capacity);
+});
+
+// 2. Initialize Real-time Listener and Tab Switching
+document.addEventListener('DOMContentLoaded', () => {
+    setupRealTimeListener();
+    setupTabSwitching();
+});
+function updatetb(classrs,gr){
+		if(gr.includes('/')){
+					gr = gr.split('/')[1];
+				}
+	if(classrs[gr] == undefined){
+        classesTableBody.innerHTML = '<tr><td colspan="4" class="text-center">No classes registered yet for this grade.</td></tr>';
+        totalClassesText.textContent = `Total Classes: 0`;
+    } else {
+        classesTableBody.innerHTML = '';
+    Object.entries(classrs[gr]).forEach(([key, data]) => {
+                classesTableBody.innerHTML += createClassRow(key, data);
+    });
+    totalClassesText.textContent = `Total Classes: ${classrs[gr].length}`;
+	}
+}
+	</script>
+
+</body>
+</html>

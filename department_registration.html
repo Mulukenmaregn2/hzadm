@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta Tags -->
+	<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hyranzi School System</title>
+    <meta name="description" content="A modern school with modern system"/>
+    
+	<!-- Favicon -->
+    <link rel="shortcut icon" href="assets/img/hz_logo_sm.png">
+    <link rel="icon" href="assets/img/hz_logo_sm.png" type="image/x-icon">
+	
+	<!-- Daterangepicker CSS -->
+    <link href="assets/css/daterangepicker.css" rel="stylesheet" type="text/css" />
+
+	<!-- Data Table CSS -->
+    <link href="assets/css/dataTables.bootstrap5.min.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/responsive.bootstrap5.min.css" rel="stylesheet" type="text/css" />
+
+	<!-- CSS -->
+    <link href="assets/css/style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+	<!-- Wrapper -->
+	<div class="hk-wrapper" data-layout="vertical" data-layout-style="default" data-menu="light" data-footer="simple">
+		<!-- Top Navbar -->
+		<nav class="hk-navbar navbar navbar-expand-xl navbar-light fixed-top">
+			<div class="container-fluid">
+			<!-- Start Nav -->
+			<div class="nav-start-wrap">
+				<button class="btn btn-icon btn-rounded btn-flush-dark flush-soft-hover navbar-toggle d-xl-none"><span class="icon"><span class="feather-icon"><i data-feather="align-left"></i></span></span></button>
+					
+				<!-- Search -->
+				<form class="dropdown navbar-search">
+					<div class="dropdown-toggle no-caret" data-bs-toggle="dropdown" data-dropdown-animation data-bs-auto-close="outside">
+						<a href="#" class="btn btn-icon btn-rounded btn-flush-dark flush-soft-hover  d-xl-none"><span class="icon"><span class="feather-icon"><i data-feather="search"></i></span></span></a>
+						<div class="input-group d-xl-flex d-none">
+							<span class="input-affix-wrapper input-search affix-border">
+								<input type="text" class="form-control  bg-transparent"  data-navbar-search-close="false" placeholder="Search..." aria-label="Search">
+								
+							</span>
+						</div>
+					</div>
+				</form>
+				<!-- /Search -->
+			</div>
+			<!-- /Start Nav -->
+			
+			<!-- End Nav -->
+			<div class="nav-end-wrap">
+			</div>
+			<!-- /End Nav -->
+			</div>									
+		</nav>
+		<!-- /Top Navbar -->
+
+    <!-- Vertical Nav -->
+    <div class="hk-menu">
+			<!-- Brand -->
+			<div class="menu-header">
+				<span>
+					<a class="navbar-brand d-flex align-items-center" href="index.html">
+						<img class="brand-img img-fluid" style="width: 45px; height: 45px; margin-right: 10px;" src="assets/img/hz_logo_md.png" alt="brand" />
+						<div class="d-inline-block nav-link-text">
+							<b class="mb-0" style="color: #9b5e02; margin-bottom: 0px;">Hyranzi</b>
+							<div class="fs-7 text-muted mt-0">School System</div>
+						</div>
+					</a>
+					<button class="btn btn-icon btn-rounded btn-flush-dark flush-soft-hover navbar-toggle">
+						<span class="icon">
+							<span class="svg-icon fs-5">
+								<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-bar-to-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+									<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+									<line x1="10" y1="12" x2="20" y2="12"></line>
+									<line x1="10" y1="12" x2="14" y2="16"></line>
+									<line x1="10" y1="12" x2="14" y2="8"></line>
+									<line x1="4" y1="4" x2="4" y2="20"></line>
+								</svg>
+							</span>
+						</span>
+					</button>
+				</span>
+			</div>
+			<!-- /Brand -->
+
+			<!-- Main Menu -->
+			<div data-simplebar class="nicescroll-bar">
+			</div>
+			<!-- /Main Menu -->
+		</div>
+        <div id="hk_menu_backdrop" class="hk-menu-backdrop"></div>
+        <!-- /Vertical Nav -->
+
+
+		<!-- Main Content -->
+		<div class="hk-pg-wrapper">
+			<div class="container-xxl">
+				<!-- Page Header -->
+				<div class="hk-pg-header pg-header-wth-tab pt-7">
+					<div class="d-flex">
+						<div class="d-flex flex-wrap justify-content-between flex-1">
+							<div class="mb-lg-0 mb-2 me-8">
+								<h1 class="pg-title"><i class="ri-community-fill me-1"></i>Department Registration</h1>
+								<p>Register a department and its head representatives.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- /Page Header -->
+
+				<!-- Page Body -->
+				<div>
+					<div class="tab-content">
+						<div class="tab-pane fade show active" id="grade-9">
+							<div class="row">
+								<div class="col-lg-12">
+									<div class="accordion accordion-card accordion-card-bold  accordion-soft" id="accordionCardExample">
+                    <div class="accordion-item">
+	                    <h2 class="accordion-header" id="card-headingOne">
+	                      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#card-collapseOne" aria-expanded="true" aria-controls="card-collapseOne">
+		                      Department Registration
+	                      </button>
+											</h2>
+	                    <div id="card-collapseOne" class="accordion-collapse collapse show" aria-labelledby="card-headingOne" data-bs-parent="#accordionCardExample">
+	                      <div class="accordion-body">
+											    <form>
+												    <div class="row">
+													    <div class="col-lg-6">
+														    <div class="form-group">
+															    <label for="departmentName">Department Name</label>
+															    <input type="text" class="form-control" id="departmentName" placeholder="Enter department name" required>
+														    </div>
+													    </div>
+													    <div class="col-lg-6">
+														    <div class="form-group">
+															    <label for="departmentHead">Department Head</label>
+															    <input type="text" class="form-control" id="departmentHead" placeholder="Enter head of department name" required>
+														    </div>
+													    </div>
+												    </div>
+												    <div class="row">
+													    <div class="col-lg-12">
+													    	<div class="form-group">
+													    		<label for="description">Description</label>
+													    		<textarea class="form-control" id="description" rows="3" placeholder="Enter department description"></textarea>
+													    	</div>
+												    	</div>
+											    	</div>
+												    <button type="submit" class="btn btn-primary">Register Department</button>
+											    </form>
+								          <div class="d-none" id="radial_chart_5"></div>
+												</div>
+	                    </div>
+                    </div>
+									</div>
+								</div>
+								<div class="col-lg-12 mt-4">
+									<div class="card">
+										<div class="card-header">
+											<h6 class="card-title">Registered Departments</h6>
+										</div>
+										<div class="card-body p-0">
+											<table class="table table-striped table-bordered">
+												<thead>
+													<tr>
+														<th>Department Name</th>
+														<th>Department Head</th>
+														<th>Description</th>
+														<th>Actions</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td colspan="4">Loading</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="tab-pane fade" id="grade-10">
+							<!-- Content for Grade 10 -->
+							<p>Content for Grade 10 will be added here.</p>
+						</div>
+						<div class="tab-pane fade" id="grade-11-natural">
+							<!-- Content for Grade 11 Natural -->
+							<p>Content for Grade 11 Natural will be added here.</p>
+						</div>
+					</div>
+				</div>
+		<!-- /Main Content -->
+		<div class="toast-container position-fixed bottom-0 end-0 p-3">
+      <div id="toastMessage" class="toast align-items-center text-bg-primary border-0" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="d-flex">
+          <div class="toast-body">Ready</div>
+          <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+      </div>
+    </div>
+	</div>
+    <!-- /Wrapper -->
+    <script src="assets/js/sidebar.js"></script>
+		<script type="module" src="assets/js/side.state.js"></script>
+		<script>
+			gowindow('Department Registration');
+		</script>
+
+	<!-- jQuery -->
+    <script src="assets/js/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JS -->
+   	<script src="assets/js/bootstrap.bundle.min.js"></script>
+
+    <!-- FeatherIcons JS -->
+    <script src="assets/js/feather.min.js"></script>
+
+    <!-- Fancy Dropdown JS -->
+    <script src="assets/js/dropdown-bootstrap-extended.js"></script>
+
+	<!-- Simplebar JS -->
+	<script src="assets/js/simplebar.min.js"></script>
+	
+	<!-- Data Table JS -->
+    <script src="assets/js/dataTables.min.js"></script>
+    <script src="assets/js/dataTables.bootstrap5.min.js"></script>
+	<script src="assets/js/dataTables.select.min.js"></script>
+
+	<!-- Daterangepicker JS -->
+    <script src="assets/js/moment.min.js"></script>
+	<script src="assets/js/daterangepicker.js"></script>
+	<script src="assets/js/daterangepicker-data.js"></script>
+
+	<!-- Amcharts Maps JS -->
+	<script src="lib/5/map.js"></script> 
+	<script src="lib/5/geodata/worldLow.js"></script>
+	<script src="lib/5/themes/Animated.js"></script>
+
+	<!-- Apex JS -->
+	<script src="assets/js/apexcharts.min.js"></script>
+
+	<!-- Init JS -->
+	<script src="assets/js/init.js"></script>
+	<script src="assets/js/chips-init.js"></script>
+	<script type="module">
+    import { initializeApp, deleteApp } from "https://www.gstatic.com/firebasejs/9.6.2/firebase-app.js";
+    import { getAuth, onAuthStateChanged, createUserWithEmailAndPassword, updateProfile, signOut } from "https://www.gstatic.com/firebasejs/9.6.2/firebase-auth.js";
+    import { getDatabase, get, ref, update, push, set, serverTimestamp, onValue, off, remove } from "https://www.gstatic.com/firebasejs/9.6.2/firebase-database.js";
+    
+		const firebaseConfig = {
+      apiKey: "AIzaSyAJXtAhCNGsDci-w1ww8gwGu23aAE6L_CM",
+      authDomain: "hyranzi.firebaseapp.com",
+      databaseURL: "https://hyranzi-default-rtdb.firebaseio.com",
+      projectId: "hyranzi",
+      storageBucket: "hyranzi.firebasestorage.app",
+      messagingSenderId: "545023994494",
+      appId: "1:545023994494:web:eb2028aa0d4423f51a062f",
+      measurementId: "G-Y9G3FY6HJ0"
+		};
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const db = getDatabase(app);
+    const deptRef = ref(db, "Departments/");
+		
+		async function waitForConnection2(db, timeout = 5000) {
+      return new Promise((resolve) => {
+        const connectedRef = ref(db, ".info/connected");
+        let done = false;
+        const timer = setTimeout(() => {
+          if (!done) { done = true; off(connectedRef); resolve(false); }
+        }, timeout);
+
+        onValue(connectedRef, (snap) => {
+          if (done) return;
+          if (snap && snap.val() === true) {
+            done = true;
+            clearTimeout(timer);
+            off(connectedRef);
+            resolve(true);
+          }
+        });
+      });
+    }
+
+		async function refreshtb2(db){
+        if (!await waitForConnection2(db, 5000)) {
+            showToast("Offline: cannot load departments. Check your internet.");
+            console.warn("Firebase offline: aborting department load.");
+        }
+        try {
+            const snapshot = await get(deptRef);
+            if (snapshot.exists()) {
+                const depts = snapshot.val(); // object of departments
+                console.log(depts);
+
+                // Optional: render into table body if present
+                const tbody = document.querySelector('tbody');
+                if (tbody) {
+                    tbody.innerHTML = ''; // clear existing rows
+                    Object.keys(depts).forEach(key => {
+                        const d = depts[key] || {};
+                        tbody.innerHTML += `
+                            <tr>
+                                <td>${d.dnm || '—'}</td>
+                                <td>${d.hldnm || '—'}</td>
+                                <td>${d.ddes || '—'}</td>
+                                <td><button class="btn btn-sm btn-danger btn-delete-dept" data-key="${key}">Delete</button></td>
+                            </tr>`;
+                    });
+                }
+            } else {
+                console.log("no data");
+            }
+        } catch (err) {
+            console.error(err);
+            showToast("Error loading departments: " + err.message);
+        }
+    }
+document.querySelector("tbody").addEventListener("click", async (e) => {
+  if (e.target.classList.contains("btn-delete-dept")) {
+    const key = e.target.getAttribute("data-key");
+    if (confirm("Are you sure you want to delete this department?")) {
+      try {
+        await remove(ref(db, "Departments/" + key));
+        showToast("Department deleted successfully");
+        refreshtb2(db);
+      } catch (err) {
+        showToast("Error deleting department: " + err.message);
+      }
+    }
+  }
+});
+refreshtb2(db);
+		// Make sure chart3 is global if it's created in a non-module script
+// window.chart3 = chart3; // uncomment if needed
+
+// 1) Smooth updater (no flicker, works with Apex animation)
+async function smoothUpdate(target, step = 1, delay = 25) {
+  const current = (chart3?.w?.globals?.series?.[0] ?? 0) | 0;
+  const dir = target >= current ? 1 : -1;
+  for (let v = current; dir > 0 ? v <= target : v >= target; v += dir * step) {
+    chart3.updateSeries([v]);
+    await new Promise(r => setTimeout(r, delay));
+  }
+}
+
+// 2) Handy helper: set label + animate
+async function go(target, label) {
+  chart3.updateOptions({ labels: [label] });
+  await smoothUpdate(target);
+}
+
+// 3) Correct students count for Realtime Database
+async function getCountWithRetry(db, retries = 10, delay = 500) {
+  for (let i = 0; i < retries; i++) {
+    try {
+      const snapshot = await get(deptRef);
+      if (snapshot.exists()) {
+        const depts = snapshot.val();
+			  console.log(depts);
+			  const tbody = document.querySelector('tbody');
+        if (tbody) {
+          tbody.innerHTML = ''; // clear existing rows
+          Object.keys(depts).forEach(key => {
+            const d = depts[key] || {};
+            tbody.innerHTML += `
+              <tr>
+                <td>${d.dnm || '—'}</td>
+                <td>${d.hldnm || '—'}</td>
+                <td>${d.ddes || '—'}</td>
+                <td><button class="btn btn-sm btn-danger" data-key="${key}">Delete</button></td>
+              </tr>`;
+          });
+        }
+      } else {
+        console.log("no data");
+      }
+    } catch (error) {
+      console.warn(`Attempt ${i + 1} failed: ${error.message}`);
+      if (i < retries - 1) {
+				if(i===1){console.log('Checking Internet');}
+				if(i===3){console.log('Retrying to connect');}
+				if(i===5){console.log('Please check network');}
+				if(i===7){console.log('Unable to connect');}
+        if (i === 8) {console.log('Network error');}
+        await new Promise(r => setTimeout(r, delay));
+      } else {
+        throw new Error("Failed to fetch teachers count after retries");
+      }
+    }
+  }
+}
+document.getElementById("radial_chart_5").classList.add('d-none');
+// 4) Submit handler (preventDefault FIRST, then animate)
+document.querySelectorAll("form")[1].addEventListener("submit", async function (event) {
+  event.preventDefault();               // ✅ do this BEFORE any await
+  event.stopImmediatePropagation();     // avoids double submits if multiple listeners
+
+  const form = event.currentTarget;
+	form.classList.add('d-none');
+  document.getElementById("radial_chart_5").classList.remove('d-none');
+
+  await go(1,  'Starting registration');
+
+  const formData = new FormData(form);
+  const formcontrols   = document.getElementsByClassName('form-control');
+  await go(5,  'Reading fields');
+  const deptData = {
+    dnm: formcontrols[1]?.value.trim(),
+		cby: auth.currentUser?.email || 'unknown',
+    hldnm: formcontrols[2]?.value.trim(),
+    hldid: "unknown",
+    ddes: formcontrols[3]?.value.trim(),
+    hlds: "none",
+		desig: "Department",
+  };
+	
+  Object.keys(deptData).forEach(k => { if (!deptData[k]) delete deptData[k]; });
+
+  await go(10,  'Connecting to database');
+
+  await go(20, 'Preparing payload');
+
+  const thepost = { ...deptData, t: serverTimestamp() };
+
+  await go(40, 'Managing resources');
+
+  await go(75, 'Granting permission');
+
+  await push(ref(db, 'Departments/'), thepost);
+
+  await go(85, 'Processing creation');
+
+  // Save to Realtime DB
+
+  document.getElementById("radial_chart_5").classList.add('d-none');
+	form.classList.remove("d-none");
+
+  await go(100, 'Registration complete');
+  try {
+    const snapshot = await get(deptRef);
+    if (snapshot.exists()) {
+        console.log(snapshot);
+      } else {
+		    console.log("no data");
+      }
+  } catch (error) {
+		console.log(error);
+	}
+  form.reset();   
+});
+
+
+		
+      function showToast(val) {
+            const toastElement = document.getElementById("toastMessage");
+            const toast = new bootstrap.Toast(toastElement);
+            document.querySelector(".toast-body").innerText = val;
+            toast.show();
+        }
+	</script>
+
+	<script>
+															
+/*Gradient Chart*/
+var options3 = {
+	series: [0],
+	chart: {
+		height: 350,
+		type: 'radialBar',
+		toolbar: {
+			show: true
+		},
+    animations: {
+      enabled: true,
+      speed: 120,
+      dynamicAnimation: { enabled: true, speed: 120 }
+    }
+	},
+	plotOptions: {
+		radialBar: {
+			startAngle: -135,
+			endAngle: 225,
+			hollow: {
+				margin: 0,
+				size: '70%',
+				background: '#fff',
+				image: undefined,
+				imageOffsetX: 0,
+				imageOffsetY: 0,
+				position: 'front',
+				dropShadow: {
+					enabled: true,
+					top: 3,
+					left: 0,
+					blur: 4,
+					opacity: 0.24
+				}
+			},
+			track: {
+				background: '#fff',
+				strokeWidth: '67%',
+				margin: 0, // margin is in pixels
+				dropShadow: {
+					enabled: true,
+					top: -3,
+					left: 0,
+					blur: 4,
+					opacity: 0.35
+				}
+			},
+
+			dataLabels: {
+				show: true,
+				name: {
+					offsetY: -10,
+					show: true,
+					color: '#888',
+					fontSize: '17px'
+				},
+				value: {
+					formatter: function(val) {
+						return val + "%";
+					},
+					color: '#111',
+					fontSize: '36px',
+					show: true,
+				}
+			}
+		}
+	},
+	fill: {
+		type: 'gradient',
+		gradient: {
+			shade: 'dark',
+			type: 'horizontal',
+			shadeIntensity: 0.5,
+			gradientToColors: ['#ABE5A1'],
+			inverseColors: true,
+			opacityFrom: 1,
+			opacityTo: 1,
+			stops: [0, 100]
+		}
+	},
+	stroke: {
+		lineCap: 'round'
+	},
+	labels: ['Creating Student'],
+	colors: ['#1ab7ea', '#0084ff', '#39539E', '#0077B5'],
+	
+};
+
+var chart3 = new ApexCharts(document.querySelector("#radial_chart_5"), options3);
+chart3.render();
+													
+	</script>
+</body>
+</html>

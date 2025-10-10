@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hyranzi School System - Login</title>
+    <meta name="description" content="A modern school with modern system"/>
+    
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="assets/img/hz_logo_sm.png">
+    <link rel="icon" href="assets/img/hz_logo_sm.png" type="image/x-icon">
+    
+    <!-- CSS - Keep your existing stylesheet link -->
+    <link href="assets/css/style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <!-- Wrapper -->
+    <div class="hk-wrapper hk-pg-auth" data-footer="simple">
+        <!-- Main Content -->
+        <div class="hk-pg-wrapper py-0">
+            <div class="hk-pg-body py-0">
+                <!-- Container -->
+                <div class="container-fluid">
+                    <!-- Row -->
+                    <div class="row auth-split">
+                        <div class="col-xl-5 col-lg-6 col-md-7 position-relative mx-auto">
+                            <div class="auth-content flex-column pt-8 pb-md-8 pb-13">
+                                <div class="text-center mb-7">
+                                    <a class="navbar-brand me-0" href="index.html">
+                                        <img class="brand-img d-inline-block" style="width: 100px; height: 100px;" src="assets/img/hz_logo_md.png" alt="Hyranzi School Logo">
+                                    </a>
+                                </div>
+                                
+                                <form id="login-form" class="w-100" method="post">
+                                    <div class="row">
+                                        <div class="col-xl-7 col-sm-10 mx-auto">
+                                            <div class="text-center mb-4">
+                                                <h4>Hayranzi Special Boarding Secondary School</h4>
+                                                <p class="text-primary">Sign in to your account!</p>
+                                            </div>
+                                            
+                                            <!-- Error Message Container -->
+                                            <div id="login-error" class="text-center mb-4 d-none" aria-live="assertive">
+                                                <p class="text-danger"></p>
+                                            </div>
+                                            
+                                            <div class="row gx-3">
+                                                <div class="form-group col-lg-12">
+                                                    <div class="form-label-group">
+                                                        <label for="username-input">User Name or Email</label>
+                                                    </div>
+                                                    <input id="username-input" class="form-control" placeholder="Enter username or email ID" autocomplete="username" type="email" required>
+                                                </div>
+                                                <div class="form-group col-lg-12">
+                                                    <div class="form-label-group">
+                                                        <label for="password-input">Password</label>
+                                                        <a href="#" class="fs-7 fw-medium">Forgot Password?</a>
+                                                    </div>
+                                                    <div class="input-group password-check">
+                                                        <span class="input-affix-wrapper affix-wth-text">
+                                                            <input id="password-input" class="form-control" placeholder="Enter your password" autocomplete="current-password" type="password" required>
+                                                            <button type="button" class="input-suffix text-primary text-uppercase fs-8 fw-medium" id="toggle-password">
+                                                                <span>Show</span>
+                                                                <span class="d-none">Hide</span>
+                                                            </button>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <button type="submit" class="btn btn-primary btn-uppercase btn-block">Login</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            
+                            <!-- Page Footer -->
+                            <div class="hk-footer border-0">
+                                <footer class="container-xxl footer">
+                                    <div class="row">
+                                        <div class="col-xl-8 text-center">
+                                            <p class="footer-text pb-0"><span class="copy-text">Hayranzi © 2025 All rights reserved.</span> <a href="#" class="" target="_blank">Privacy Policy</a><span class="footer-link-sep">|</span><a href="#" class="" target="_blank">T&C</a><span class="footer-link-sep">|</span><a href="#" class="" target="_blank">System Status</a></p>
+                                        </div>
+                                    </div>
+                                </footer>
+                            </div>
+                            <!-- / Page Footer -->
+                        </div>
+                        <div class="col-xl-7 col-lg-6 col-md-5 col-sm-10 d-md-block d-none position-relative bg-primary-light-5">
+                            <div class="auth-content flex-column text-center py-8 school-background">
+                                <div class="row">
+                                    <!-- Add alt text for the decorative image -->
+                                    <!-- img src="assets/img/school_building.webp" class="img-fluid w-100 mb-4" alt="school building" -->
+                                    <div class="col-xxl-7 col-xl-8 col-lg-11 mx-auto">
+                                        <h1 class="mb-4 stroke-blue">Welcome To Hayranzi Special Boarding Secondary School</h1>
+                                        <p class="text-white">The school is to be seen as an institution where students who are nationally famous for their good morals and excellent academic results, who make significant contributions in the fields of science and technology, emerge.</p>
+                                        <button class="btn  btn-flush-primary btn-uppercase mt-2 text-white">(Hyranzi Vision)</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /Row -->
+                </div>
+                <!-- /Container -->
+            </div>
+            <!-- /Page Body -->
+        </div>
+        <!-- /Main Content -->
+    </div>
+    <!-- /Wrapper -->
+    
+    <!-- JavaScript imports should be at the end of the body tag for faster page loading -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/feather.min.js"></script>
+    <script src="assets/js/dropdown-bootstrap-extended.js"></script>
+    <script src="assets/js/simplebar.min.js"></script>
+    <script src="assets/js/init.js"></script>
+    
+    <!-- Use a single script tag for Firebase initialization and login logic -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.2/firebase-app.js";
+        import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.6.2/firebase-auth.js";
+
+        // Your Firebase config
+        const firebaseConfig = {
+            apiKey: "AIzaSyAJXtAhCNGsDci-w1ww8gwGu23aAE6L_CM",
+            authDomain: "hyranzi.firebaseapp.com",
+            databaseURL: "https://hyranzi-default-rtdb.firebaseio.com",
+            projectId: "hyranzi",
+            storageBucket: "hyranzi.firebasestorage.app",
+            messagingSenderId: "545023994494",
+            appId: "1:545023994494:web:eb2028aa0d4423f51a062f",
+            measurementId: "G-Y9G3FY6HJ0"
+        };
+        
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        
+        // Form and element references
+        const loginForm = document.getElementById("login-form");
+        const emailInput = document.getElementById("username-input");
+        const passwordInput = document.getElementById("password-input");
+        const loginButton = loginForm.querySelector("button[type='submit']");
+        const errorContainer = document.getElementById("login-error");
+        const errorParagraph = errorContainer.querySelector("p");
+        const togglePasswordButton = document.getElementById("toggle-password");
+        const showPasswordSpan = togglePasswordButton.querySelector("span:not(.d-none)");
+        const hidePasswordSpan = togglePasswordButton.querySelector("span.d-none");
+
+        // Event listener for form submission
+        loginForm.addEventListener("submit", async function(e) {
+            e.preventDefault();
+            
+            // Show loading state and disable button
+            loginButton.disabled = true;
+            errorContainer.classList.add('d-none');
+            
+            const email = emailInput.value;
+            const password = passwordInput.value;
+            
+            try {
+                const userCredential = await signInWithEmailAndPassword(auth, email, password);
+                
+                // Signed in successfully
+                errorParagraph.textContent = "Signed in as: " + userCredential.user.email;
+                const ail = userCredential.user.email;
+                if (email.includes("st")) {
+                    window.location.href = "student_home.html";
+                } else if (ail.includes("te") || email.includes("th")) {
+                    window.location.href = "teacher_home.html";
+                } else if (ail.includes("admin")) {
+                    window.location.href = "home.html"
+                } else {
+                  errorParagraph.textContent = "Sorry, unable to get access!";
+                }
+            } catch (error) {
+                // Handle authentication errors
+								if(error.message="Firebase: Error (auth/network-request-failed)."){
+                  errorParagraph.textContent = "Network Error: Please check your internet connection!";
+								}else{
+                  errorParagraph.textContent = error.message;
+							  }
+                errorContainer.classList.remove('d-none');
+            } finally {
+                // Re-enable button after attempt
+                loginButton.disabled = false;
+            }
+        });
+
+        // Event listener for "Show/Hide Password" button
+        togglePasswordButton.addEventListener("click", function() {
+            const isPasswordVisible = passwordInput.type === "text";
+            passwordInput.type = isPasswordVisible ? "password" : "text";
+
+            if (isPasswordVisible) {
+                showPasswordSpan.classList.remove("d-none");
+                hidePasswordSpan.classList.add("d-none");
+            } else {
+                showPasswordSpan.classList.add("d-none");
+                hidePasswordSpan.classList.remove("d-none");
+            }
+        });
+    </script>
+</body>
+</html>

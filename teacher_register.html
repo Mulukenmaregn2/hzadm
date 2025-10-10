@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta Tags -->
+	<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hyranzi School System</title>
+    <meta name="description" content="A modern school with modern system"/>
+    
+	<!-- Favicon -->
+    <link rel="shortcut icon" href="assets/img/hz_logo_sm.png">
+    <link rel="icon" href="assets/img/hz_logo_sm.png" type="image/x-icon">
+	
+	<!-- Daterangepicker CSS -->
+    <link href="assets/css/daterangepicker.css" rel="stylesheet" type="text/css" />
+
+	<!-- Data Table CSS -->
+    <link href="assets/css/dataTables.bootstrap5.min.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/responsive.bootstrap5.min.css" rel="stylesheet" type="text/css" />
+
+	<!-- CSS -->
+    <link href="assets/css/style.css" rel="stylesheet" type="text/css">
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    .id-card {
+      width: 500px;
+      height: 280px;
+      border: 2px solid #000;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      background: #fff;
+      position: relative;
+      overflow: hidden;
+      font-size: 14px;
+    }
+    .id-header {
+      display: flex;
+      align-items: center;
+      padding: 8px 12px;
+      border-bottom: 2px solid #000;
+      background: #f8f9fa;
+    }
+    .id-header img {
+      width: 50px;
+      height: 50px;
+      object-fit: contain;
+      margin-right: 10px;
+    }
+    .id-body {
+      display: flex;
+      padding: 10px;
+    }
+    .id-body img {
+      width: 120px;
+      height: 120px;
+      border-radius: 8px;
+      object-fit: cover;
+      border: 1px solid #000;
+    }
+    .id-info {
+      margin-left: 15px;
+      line-height: 1.5;
+      flex: 1;
+    }
+    .id-footer {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      text-align: center;
+      font-size: 13px;
+      padding: 4px;
+      border-top: 2px solid #000;
+      background: #f8f9fa;
+    }
+      .image-drop1 {
+          min-width: 100%;
+          max-width: 100%; 
+          min-height: 100px;
+          max-height:120px; 
+          object-fit:cover;
+          object-position: center;
+        }
+		</style>
+</head>
+<body>
+	<!-- Wrapper -->
+	<div class="hk-wrapper" data-layout="vertical" data-layout-style="default" data-menu="light" data-footer="simple">
+		<!-- Top Navbar -->
+		<nav class="hk-navbar navbar navbar-expand-xl navbar-light fixed-top">
+			<div class="container-fluid">
+			<!-- Start Nav -->
+			<div class="nav-start-wrap">
+				<button class="btn btn-icon btn-rounded btn-flush-dark flush-soft-hover navbar-toggle d-xl-none"><span class="icon"><span class="feather-icon"><i data-feather="align-left"></i></span></span></button>
+					
+				<!-- Search -->
+				<form class="dropdown navbar-search">
+					<div class="dropdown-toggle no-caret" data-bs-toggle="dropdown" data-dropdown-animation data-bs-auto-close="outside">
+						<a href="#" class="btn btn-icon btn-rounded btn-flush-dark flush-soft-hover  d-xl-none"><span class="icon"><span class="feather-icon"><i data-feather="search"></i></span></span></a>
+						<div class="input-group d-xl-flex d-none">
+							<span class="input-affix-wrapper input-search affix-border">
+								<input type="text" class="form-control  bg-transparent"  data-navbar-search-close="false" placeholder="Search..." aria-label="Search">
+								
+							</span>
+						</div>
+					</div>
+				</form>
+				<!-- /Search -->
+			</div>
+			<!-- /Start Nav -->
+			
+			<!-- End Nav -->
+			<div class="nav-end-wrap">
+			</div>
+			<!-- /End Nav -->
+			</div>									
+		</nav>
+		<!-- /Top Navbar -->
+
+    <!-- Vertical Nav -->
+    <div class="hk-menu">
+			<!-- Brand -->
+			<div class="menu-header">
+				<span>
+					<a class="navbar-brand d-flex align-items-center" href="index.html">
+						<img class="brand-img img-fluid" style="width: 45px; height: 45px; margin-right: 10px;" src="assets/img/hz_logo_md.png" alt="brand" />
+						<div class="d-inline-block nav-link-text">
+							<b class="mb-0" style="color: #9b5e02; margin-bottom: 0px;">Hyranzi</b>
+							<div class="fs-7 text-muted mt-0">School System</div>
+						</div>
+					</a>
+					<button class="btn btn-icon btn-rounded btn-flush-dark flush-soft-hover navbar-toggle">
+						<span class="icon">
+							<span class="svg-icon fs-5">
+								<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-bar-to-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+									<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+									<line x1="10" y1="12" x2="20" y2="12"></line>
+									<line x1="10" y1="12" x2="14" y2="16"></line>
+									<line x1="10" y1="12" x2="14" y2="8"></line>
+									<line x1="4" y1="4" x2="4" y2="20"></line>
+								</svg>
+							</span>
+						</span>
+					</button>
+				</span>
+			</div>
+			<!-- /Brand -->
+
+			<!-- Main Menu -->
+			<div data-simplebar class="nicescroll-bar">
+			</div>
+			<!-- /Main Menu -->
+		</div>
+        <div id="hk_menu_backdrop" class="hk-menu-backdrop"></div>
+        <!-- /Vertical Nav -->
+
+
+		<!-- Main Content -->
+		<div class="hk-pg-wrapper">
+			<div class="container-xxl">
+				<!-- Page Header -->
+				<div class="hk-pg-header pg-header-wth-tab pt-7">
+					<div class="d-flex">
+						<div class="d-flex flex-wrap justify-content-between flex-1">
+							<div class="mb-lg-0 mb-2 me-8">
+								<h1 class="pg-title"><i class="ri-contacts-fill me-1"></i>Teacher Registration</h1>
+								<p>Register new teachers here..</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- /Page Header -->
+
+				
+				<!-- Page Body -->
+				<div class="row hk-pg-body">
+				  <!-- /Page Body -->	
+					<div class="col-xl-12">
+						<div class="card">
+							<div class="card-header">
+								<h6 class="card-title">Teacher Registration Form</h6>
+							</div>
+							<div class="card-body">
+								<form>
+									<div class="row">
+										<div class="col-md-12  text-center align-items-center justify-content-between">
+											<div id="dropzone1" class="newimage d-inline-block rounded-3 align-items-center p-3" style="width: 150px; height: 150px; border: 1px dashed #ccc; border-radius: 8px; padding: 10px; text-align: center; cursor: pointer;">
+											  <i class="ri-image-add-fill me-1 text-primary fs-1"></i>
+											  <label for="imageUpload" class="form-label d-block">Add image here...</label>
+										  </div>
+                      <input type="file" id="imageUpload" class="d-none" accept="image/*" />
+											<div type="text" class="bUpload d-none"></div>
+										</div>
+										<div class="text-primary border-bottom border-primary mb-3 p-2">Basics</div>
+										<div class="col-md-4 mb-1">
+											<label for="t_fname" class="form-label">First Name</label>
+											<input type="text" class="form-control" id="t_fname" placeholder="Enter first name" required>
+										</div>
+										<div class="col-md-4 mb-1">
+											<label for="t_mname" class="form-label">Middle Name</label>
+											<input type="text" class="form-control" id="t_mname" placeholder="Enter middle name" required>
+										</div>
+										<div class="col-md-4 mb-1">
+											<label for="t_lname" class="form-label">Last Name</label>
+											<input type="text" class="form-control" id="t_lname" placeholder="Enter last name" required>
+										</div>
+										<div class="col-md-4 mb-1">
+											<label for="t_phone" class="form-label">Phone Number</label>
+											<input type="tel" class="form-control" id="t_phone" placeholder="Enter phone number" required>
+										</div>
+										<div class="col-md-4 mb-1">
+											<label for="field" class="form-label">Field of Study</label>
+											<input type="text" class="form-control" id="field" placeholder="Math, Physics, chemistry..." required>
+										</div>
+										<div class="col-md-4 mb-1">
+											<label for="t_sex" class="form-label">Sex</label>
+											<select class="form-select" id="t_sex" required>
+												<option value="">Select</option>
+												<option value="male">Male</option>
+												<option value="female">Female</option>
+												<!-- Add more classes as needed -->
+											</select>
+										</div>
+										<div class="text-primary mt-2 border-bottom border-primary mb-3 p-2">Identifiers</div>
+										<div class="col-md-4 mb-1">
+											<label for="t_edu" class="form-label">Level of Education</label>
+											<select class="form-select" id="t_edu">
+												<option value="">Select</option>
+												<option value="Diploma">Diploma</option>
+												<option value="Degree">Degree</option>
+												<option value="Masters">Masters</option>
+												<option value="PHD">PHD</option>
+												<!-- Add more classes as needed -->
+											</select>
+										</div>
+										<div class="col-md-4 mb-1">
+											<label for="expriance" class="form-label">Years of Expriance(0,1,2,...)</label>
+											<input type="number" class="form-control" id="expriance" placeholder="Enter years of expriance">
+										</div>
+										<div class="col-md-4 mb-1">
+											<label for="deptnow" class="form-label">Year of Graduation</label>
+											<input type="date" class="form-control" id="deptnow" placeholder="Enter year of graduation">
+										</div>
+										<div class="col-md-4 mb-1">
+											<label for="t_age" class="form-label">Age</label>
+											<input type="number" class="form-control" id="t_age" placeholder="Enter age">
+										</div>
+										<div class="col-md-4 mb-1">
+											<label for="t_email" class="form-label">Email Address</label>
+											<input type="email" class="form-control" id="t_email" placeholder="Enter email address">
+										</div>
+										<div class="col-md-4 mb-1">
+											<label for="living_address" class="form-label">Current Living Address</label>
+											<input type="text" class="form-control" id="living_address" placeholder="Enter living address">
+										</div>
+										<div class="col-md-4 mb-1">
+											<label for="t_nation" class="form-label">Nationality</label>
+											<select class="form-select" id="t_nation">
+												<option value="">Select</option>
+												<option value="Ethiopia">Ethiopian</option>
+												<option value="Other">Non-Ethiopian</option>
+												<!-- Add more classes as needed -->
+											</select>
+										</div>
+										<div class="col-md-4 mb-1">
+											<label for="t_disability" class="form-label">Disability</label>
+											<select class="form-select" id="t_disability">
+												<option value="">Select</option>
+												<option value="yes">yes</option>
+												<option value="no">no</option>
+												<!-- Add more classes as needed -->
+											</select>
+										</div>
+										<div class="col-md-12 mb-3">
+											<label for="disability_desc" class="form-label">If there is any form of disability explain here</label>
+											<textarea class="form-control" id="disability_desc" rows="3" placeholder="If there is any form of disability explain and identify the disability type here!"></textarea>
+										</div>
+										<div class="text-primary mt-2 border-bottom border-primary mb-3 p-2">Work Based Informations</div>
+										<div class="col-md-4 mb-1">
+											<label for="joindate" class="form-label">Date of Joining Hyranzi</label>
+											<input type="date" class="form-control" id="joindate" placeholder="Enter joining date">
+										</div>
+										<div class="col-md-4 mb-1">
+											<label for="salary" class="form-label">Gross Salery</label>
+											<input type="number" class="form-control" id="salary" placeholder="Enter current salary">
+										</div>
+										<div class="col-md-4 mb-1">
+											<label for="deptnow" class="form-label">Working Department Under</label>
+											<input type="text" class="form-control" id="deptnow" placeholder="Enter department">
+										</div>
+										<div class="text-primary mt-2 border-bottom border-primary mb-3 p-2">Emergency Times Information</div>
+										<div class="col-md-4 mb-1">
+											<label for="emergency_name" class="form-label">Full Name</label>
+											<input type="text" class="form-control" id="emergency_name" placeholder="Enter full name">
+										</div>
+										<div class="col-md-4 mb-1">
+											<label for="emergency_relation" class="form-label">Relation</label>
+											<input type="text" class="form-control" id="emergency_relation" placeholder="Enter relation">
+										</div>
+										<div class="col-md-4 mb-1">
+											<label for="emergency_phone" class="form-label">Phone Number</label>
+											<input type="tel" class="form-control" id="emergency_phone" placeholder="Enter phone number">
+										</div>
+										<div class="col-md-4 mb-1">
+											<label for="emergency_address" class="form-label">Living Address</label>
+											<input type="text" class="form-control" id="emergency_address" placeholder="Enter address">
+										</div>
+										<div class="text-primary mt-2 border-bottom border-primary mb-3 p-2">Additional Information</div>
+										<div class="col-md-12 mb-3">
+											<label for="more_desc" class="form-label">More Description About the Teacher</label>
+											<textarea class="form-control" id="more_desc" rows="3" placeholder="Enter a description about the teacher here..."></textarea>
+										</div>
+									</div>
+									<button type="submit" class="btn btn-primary regnow">Register Teacher</button>
+								</form>
+								<div class="d-none" id="radial_chart_5"></div>
+								<div class="teinfo d-none">
+									<div class="d-flex justify-content-around">
+										<div class="align-items-center fs-5 text-primary">Teacher registered successfully! </div>
+										<button type="submit" class="btn-sm btn-primary regnew p-2">Register Another Teacher</button>
+									</div><hr>
+									
+								  <div>
+										<div class="d-flex justify-content-center m-2" >
+											<div class="avatar avatar-rounded avatar-xxxl">
+												<img class="avatar-img p-2 stimg" src="assets/img/no-avatar_male.jpg" style="min-width:130px; min-height:130px; max-height:160px; max-width:160px; object-fit:cover;">
+											</div>
+										</div>
+										<div id="ishow">
+										  
+                    </div>
+                  </div>
+									<div class="d-flex justify-content-center align-items-center pt-3">
+									  <div class="id-card">
+                      <!-- Header -->
+                      <div class="id-header">
+                        <img src="assets/img/hz_logo_md.png" alt="School Logo">
+                        <b>Hayranzi Secondary & Preparatory School</b>
+                      </div>
+
+                      <!-- Body -->
+                      <div class="id-body">
+                        <img class="stimg" src="assets/img/no-avatar_male.jpg" alt="Student Photo">
+                        <div class="id-info idin">
+                          <b>Name:</b> Muluken Maregn Hailu<br>
+                          <b>Age:</b> 24 &nbsp; | &nbsp; <b>Sex:</b> Male<br>
+                          <b>Phone:</b> 0916060610<br>
+                          <b>Grade:</b> 9th B<br>
+                          <b>Emergency:</b><br>
+                          Name: Maregn Hailu | Relation: Father<br>
+                          Phone: 0916060610 | Address: Kella
+                        </div>
+                      </div>
+                      <!-- Footer -->
+                      <div class="id-footer">
+                        ID Reg: 01/01/2026 GC. &nbsp; Exp: &nbsp; 01/01/2027 GC.
+                      </div>
+                    </div>
+                  </div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>	
+			</div>
+			
+			<!-- Page Footer -->
+			<div class="hk-footer">
+				<footer class="container-xxl footer">
+					<div class="row">
+						<div class="col-xl-8">
+							<p class="footer-text"><span class="copy-text">Hayranzi © 2025 All rights reserved.</span> <a href="#" class="" target="_blank">Privacy Policy</a><span class="footer-link-sep">|</span><a href="#" class="" target="_blank">T&C</a><span class="footer-link-sep">|</span><a href="#" class="" target="_blank">System Status</a></p>
+						</div>
+						<!--div class="col-xl-4">
+							<a href="#" class="footer-extr-link link-default"><span class="feather-icon"><i data-feather="external-link"></i></span><u>Send feedback to our help forum</u></a>
+						</div-->
+					</div>
+				</footer>
+      </div>
+      <!-- / Page Footer -->
+		</div>
+		
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+      <div id="toastMessage" class="toast align-items-center text-bg-danger border-0" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="d-flex">
+          <div class="toast-body">
+            Please get the verification code first / click "send" to get the code
+          </div>
+          <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+      </div>
+    </div>
+		<!-- /Main Content -->
+	</div>
+    <!-- /Wrapper -->
+    <script src="assets/js/sidebar.js"></script>
+		<script type="module" src="assets/js/side.state.js"></script>
+		<script>
+			gowindow('Register Teacher');
+		</script>
+
+	<!-- jQuery -->
+    <script src="assets/js/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JS -->
+   	<script src="assets/js/bootstrap.bundle.min.js"></script>
+
+    <!-- FeatherIcons JS -->
+    <script src="assets/js/feather.min.js"></script>
+
+    <!-- Fancy Dropdown JS -->
+    <script src="assets/js/dropdown-bootstrap-extended.js"></script>
+
+	<!-- Simplebar JS -->
+	<script src="assets/js/simplebar.min.js"></script>
+	
+	<!-- Data Table JS -->
+    <script src="assets/js/dataTables.min.js"></script>
+    <script src="assets/js/dataTables.bootstrap5.min.js"></script>
+	<script src="assets/js/dataTables.select.min.js"></script>
+
+	<!-- Daterangepicker JS -->
+    <script src="assets/js/moment.min.js"></script>
+	<script src="assets/js/daterangepicker.js"></script>
+	<script src="assets/js/daterangepicker-data.js"></script>
+
+	<!-- Amcharts Maps JS -->
+	<script src="lib/5/map.js"></script> 
+	<script src="lib/5/geodata/worldLow.js"></script>
+	<script src="lib/5/themes/Animated.js"></script>
+
+	<!-- Apex JS -->
+	<script src="assets/js/apexcharts.min.js"></script>
+
+	<!-- Init JS -->
+	<script src="assets/js/init.js"></script>
+	<script src="assets/js/chips-init.js"></script>
+	<script type="module">
+    import { initializeApp, deleteApp } from "https://www.gstatic.com/firebasejs/9.6.2/firebase-app.js";
+    import { getAuth, onAuthStateChanged, createUserWithEmailAndPassword, updateProfile, signOut } from "https://www.gstatic.com/firebasejs/9.6.2/firebase-auth.js";
+	import { getDatabase, get, ref, update, push, set, serverTimestamp, runTransaction } from "https://www.gstatic.com/firebasejs/9.6.2/firebase-database.js";
+    document.getElementById('dropzone1').addEventListener('click', function() {
+      document.getElementById('imageUpload').click();
+    });
+    document.getElementById('imageUpload').addEventListener('change', function(event) {
+      compressimgurl("imageUpload",'newimage','bUpload','image-drop1');
+    });
+		function compressimgurl(id,imgclass,txtclass,imgdrop) {
+        var imageUrl = '';
+        var fileInput = document.getElementById(id);
+        var imgSizeKB = '';
+        if (fileInput.value.length > 0) {
+          const file = fileInput.files[0];
+          if (file.type.startsWith('image/')) {
+            const reader = new FileReader();
+            reader.readAsDataURL(file);
+            reader.onload = function(event) {
+              const img = new Image();
+              img.src = event.target.result;
+              img.onload = function() {
+                const canvas = document.createElement("canvas");
+                const ctx = canvas.getContext("2d");
+                const MAX_WIDTH = 800;
+                const MAX_HEIGHT = 800;
+                let width = img.width;
+                let height = img.height;
+                // Scale down while maintaining aspect ratio
+                if (width > height) {
+                  if (width > MAX_WIDTH) {
+                    height *= MAX_WIDTH / width;
+                    width = MAX_WIDTH;
+                  }
+                } else {
+                  if (height > MAX_HEIGHT) {
+                    width *= MAX_HEIGHT / height;
+                    height = MAX_HEIGHT;
+                  }
+                }
+                canvas.width = width;
+                canvas.height = height;
+                ctx.drawImage(img, 0, 0, width, height);
+                // Convert to Blob (JPEG with 80% quality)
+                canvas.toBlob(function(blob) {
+                  const compressedFile = new File([blob], 'fileImage' + '.jpeg', { type: "image/jpeg" });
+                  const dataTransfer = new DataTransfer();
+                  dataTransfer.items.add(compressedFile);
+                  fileInput.files = dataTransfer.files;
+                  imgSizeKB = (((compressedFile.size) / 1024).toFixed(2));
+                  imageUrl = URL.createObjectURL(compressedFile); 
+                  //alert('Image size: ' + imgSizeKB + ' KB');
+                  // Convert the compressed file to base64
+                  const reader2 = new FileReader();
+                  reader2.readAsDataURL(compressedFile);
+                  reader2.onloadend = function() {
+                    const compressedBase64 = reader2.result;
+                    // //alert((compressedBase64.length)/ 1024 + " KB");
+                    document.querySelector(`.${txtclass}`).innerText = compressedBase64;
+                  };
+                  document.getElementsByClassName(imgclass)[0].innerHTML =`<img class=${imgdrop} src="${imageUrl}" alt="Customer Image">`;
+                }, "image/jpeg", 0.8);
+              };
+            };
+          }
+        }
+    }
+		const firebaseConfig = {
+      apiKey: "AIzaSyAJXtAhCNGsDci-w1ww8gwGu23aAE6L_CM",
+      authDomain: "hyranzi.firebaseapp.com",
+      databaseURL: "https://hyranzi-default-rtdb.firebaseio.com",
+      projectId: "hyranzi",
+      storageBucket: "hyranzi.firebasestorage.app",
+      messagingSenderId: "545023994494",
+      appId: "1:545023994494:web:eb2028aa0d4423f51a062f",
+      measurementId: "G-Y9G3FY6HJ0"
+		};
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const db = getDatabase(app);
+
+// 1) Smooth updater (no flicker, works with Apex animation)
+async function smoothUpdate(target, step = 1, delay = 25) {
+  const current = (chart3?.w?.globals?.series?.[0] ?? 0) | 0;
+  const dir = target >= current ? 1 : -1;
+  for (let v = current; dir > 0 ? v <= target : v >= target; v += dir * step) {
+    chart3.updateSeries([v]);
+    await new Promise(r => setTimeout(r, delay));
+  }
+}
+
+// 2) Handy helper: set label + animate
+async function go(target, label) {
+  chart3.updateOptions({ labels: [label] });
+  await smoothUpdate(target);
+}
+
+// 3) Correct students count for Realtime Database
+async function getStudentsCountWithRetry(db, retries = 10, delay = 500) {
+  const teacherRef = ref(db, "Teachers List/");
+  for (let i = 0; i < retries; i++) {
+    try {
+      const snapshot = await get(teacherRef);
+      if (snapshot.exists()) {
+        return snapshot.size; // ✅ RTDB count
+      } else {
+        return 0;
+      }
+    } catch (error) {
+      console.warn(`Attempt ${i + 1} failed: ${error.message}`);
+      if (i < retries - 1) {
+				if(i===1){
+          await go(20,  'Checking Internet');}
+				if(i===3){
+          await go(20,  'Retrying to connect');}
+				if(i===5){
+          await go(20,  'Please check network');}
+				if(i===7){
+          await go(20,  'Unable to connect');}
+        if (i === 8) {
+          await go(20,  'Network error');
+				}
+        await new Promise(r => setTimeout(r, delay));
+      } else {
+	      document.querySelectorAll("form")[1].classList.remove('d-none');
+        document.getElementById("radial_chart_5").classList.add('d-none');
+        throw new Error("Failed to fetch teachers count after retries");
+      }
+    }
+  }
+}
+// Atomically increment and return the teachers counter (non-repeating)
+async function getNextTeacherSeq(db) {
+	try {
+		const counterRef = ref(db, 'counters/teachers');
+		const result = await runTransaction(counterRef, (current) => {
+			return (current || 0) + 1;
+		});
+		if (result && result.snapshot) {
+			return result.snapshot.val();
+		}
+		return null;
+	} catch (err) {
+		console.warn('getNextTeacherSeq failed', err);
+		return null;
+	}
+}
+document.getElementById("radial_chart_5").classList.add('d-none');
+// 4) Submit handler (preventDefault FIRST, then animate)
+document.querySelectorAll("form")[1].addEventListener("submit", async function (event) {
+  event.preventDefault();               // ✅ do this BEFORE any await
+  event.stopImmediatePropagation();     // avoids double submits if multiple listeners
+
+  const form = event.currentTarget;
+	document.querySelectorAll("form")[1].classList.add('d-none');
+  document.getElementById("radial_chart_5").classList.remove('d-none');
+
+  await go(1,  'Starting registration');
+
+  const formData = new FormData(form);
+  const formcontrols   = document.getElementsByClassName('form-control');
+  const formselections = document.getElementsByClassName('form-select');
+
+  await go(5,  'Reading fields');
+
+	var teacherBasic = {
+    fnm: formcontrols[1]?.value.trim()+':'+formcontrols[2]?.value.trim()+':'+formcontrols[3]?.value.trim(),
+    sex: formselections[0]?.value.trim(),
+    eml: formcontrols[9]?.value.trim(),
+    pno: formcontrols[4]?.value.trim(),
+    fos: formcontrols[5]?.value.trim()
+	}
+  var teacherData = {
+		cby: auth.currentUser?.email || 'unknown',
+    loe: formselections[1]?.value.trim(),
+    yoe: formcontrols[6]?.value.trim(),
+    yog: formcontrols[7]?.value.trim(),
+    age: formcontrols[8]?.value.trim(),
+    adr: formcontrols[10]?.value.trim(),
+    nat: formselections[2]?.value.trim(),
+    dis: formselections[3]?.value.trim(),
+    dde: formcontrols[11]?.value.trim(),
+    djh: formcontrols[12]?.value.trim(),
+    sry: formcontrols[13]?.value.trim(),
+    wdu: formcontrols[14]?.value.trim(),
+    enm: formcontrols[15]?.value.trim(),
+    ern: formcontrols[16]?.value.trim(),
+    epno: formcontrols[17]?.value.trim(),
+    eadr: formcontrols[18]?.value.trim(),
+    mtdes: formcontrols[19]?.value.trim(),
+		desig: "Teacher",
+		ss: "a",
+    img: document.querySelector('.bUpload').innerText
+  };
+	
+  Object.keys(teacherData).forEach(k => { if (!teacherData[k]) delete teacherData[k]; });
+  Object.keys(teacherBasic).forEach(k => { if (!teacherBasic[k]) delete teacherBasic[k]; });
+
+	await go(10,  'Connecting to database');
+
+	// Generate a short, non-repeating teacher id using an atomic counter in RTDB
+	let seq = await getNextTeacherSeq(db);
+	if (seq == null) {
+		// Fallback when transaction fails: use count (less ideal but safe)
+		const telength = await getStudentsCountWithRetry(db) || 0;
+		teacherBasic = { ...teacherBasic, teid: `hzth${telength}` };
+	} else {
+		// Shorten by encoding in base36 and uppercase for readability
+		const short = seq.toString(36).toUpperCase();
+		teacherBasic = { ...teacherBasic, teid: `hzth${short}` };
+	}
+
+		const thepost = { ...teacherData, ps: "012345678", t: serverTimestamp() };
+		// Do not preview or show the 'done' UI until auth and DB write succeed.
+
+  await go(40, 'Processing student creation');
+	let teacherUid = 'unknown';
+
+	let authFailed = false;
+	let secondaryApp = null;
+	let secondaryAuth = null;
+	try {
+		await go(45, 'Allocating account');
+		// Derive a unique email from the generated teid to avoid collisions
+		const teemail = `${teacherBasic.teid.toLowerCase()}@hyranzi.com`;
+		const tepassword = "012345678";
+
+		secondaryApp  = initializeApp(firebaseConfig, "secondary");
+		secondaryAuth = getAuth(secondaryApp);
+
+		await go(50, 'Creating user');
+		const cred = await createUserWithEmailAndPassword(secondaryAuth, teemail, tepassword);
+		teacherUid = cred.user.uid;
+
+		await go(60, 'Setting profile');
+		await updateProfile(cred.user, { displayName: teacherBasic.fnm.split(":").join(" ") });
+
+		showToast(`✅ Created user`);
+
+		await go(75, 'Granting permission');
+		await signOut(secondaryAuth);
+
+		await go(85, 'Managing resources');
+		await deleteApp(secondaryApp);
+		secondaryApp = null;
+
+		await go(90, 'Saving to database');
+	} catch (err) {
+		// mark failure so we won't write DB records below
+		authFailed = true;
+		// restore UI
+		document.querySelectorAll("form")[1].classList.remove('d-none');
+		document.getElementById("radial_chart_5").classList.add('d-none');
+		// improve common error messages
+		let msg = err.message || String(err);
+		if (err.code === 'auth/email-already-in-use' || msg.includes('email-already-in-use')) {
+			msg = 'The generated teacher email is already in use. Try again or use a different identifier.';
+		}
+		showToast(`❌ ${msg}`);
+		console.error(err);
+		// cleanup secondary app if it wasn't deleted
+		try { if (secondaryAuth) await signOut(secondaryAuth); } catch (e) { /* ignore */ }
+		try { if (secondaryApp) await deleteApp(secondaryApp); } catch (e) { /* ignore */ }
+	}
+
+	// Save to Realtime DB (multi-path atomic update)
+	// If auth failed, abort before attempting DB writes or showing completion UI
+	if (authFailed) {
+		return;
+	}
+	thepost.uid = teacherUid;
+	// If we have a uid from the created user, write both paths under that uid.
+	// Use computed keys for multi-path update to write atomically.
+	if (teacherUid && teacherUid !== 'unknown') {
+		const updates = {};
+		updates[`Teachers List/${teacherUid}`] = teacherBasic;
+		updates[`Teachers Detail/${teacherUid}`] = thepost;
+		await update(ref(db), updates);
+		// Update the UI with final uid/teid after successful write
+		const finalShow = { ...thepost, ...teacherBasic, teid: teacherBasic.teid };
+		ishowu(JSON.stringify(finalShow));
+	} else {
+		// Fallback: generate a new key and write both paths using that key.
+		const newRef = push(ref(db, 'Teachers List'));
+		const newKey = newRef.key;
+		thepost.uid = newKey;
+		const updates = {};
+		updates[`Teachers List/${newKey}`] = teacherBasic;
+		updates[`Teachers Detail/${newKey}`] = thepost;
+		await update(ref(db), updates);
+		const finalShow = { ...thepost, ...teacherBasic, teid: teacherBasic.teid };
+		ishowu(JSON.stringify(finalShow));
+	}
+
+  document.getElementById("radial_chart_5").classList.add('d-none');
+	document.querySelector(".teinfo").classList.remove("d-none");
+
+  await go(100, 'Registration complete');
+	
+
+  // Safe reset AFTER everything finishes
+  form.reset();   
+  document.getElementById("radial_chart_5").classList.add('d-none');
+	document.querySelector(".teinfo").classList.remove("d-none");
+	                                  // ✅ use the form reference
+  document.querySelector('.bUpload').innerText = '';
+  document.querySelector('.newimage').innerHTML = `<i class="ri-image-add-fill me-1 text-primary fs-1"></i>
+		 <label for="imageUpload" class="form-label d-block">Add image here...</label>`;
+});
+
+document.querySelector(".regnew").addEventListener("click",function(){
+	document.querySelector(".teinfo").classList.add("d-none");
+	document.querySelectorAll("form")[1].classList.remove('d-none');
+});
+
+		
+      function showToast(val) {
+            const toastElement = document.getElementById("toastMessage");
+            const toast = new bootstrap.Toast(toastElement);
+            document.querySelector(".toast-body").innerText = val;
+            toast.show();
+        }
+	</script>
+	
+	<script>
+		function ishowu(ar){
+			const arr = JSON.parse(ar);
+		  const ishow = document.querySelector("#ishow");
+			document.querySelector(".stimg").src=arr.image? arr.image : 'assets/img/no-avatar_male.jpg';
+			ishow.innerHTML += `<div class="text-primary border-bottom border-primary mb-3 p-2">Basics</div>`;
+	    ishow.innerHTML +=arr.fnm? `<b>Name: </b>${arr.fnm.split(":").join(" ")}`:"";
+	    ishow.innerHTML +=arr.teid? `<b>ID: </b>${arr.teid}`:"";
+	    ishow.innerHTML +=arr.sex? `<b>Sex: </b>${arr.sex}`:"";
+	    ishow.innerHTML +=arr.fos? `<b>Field of Study: </b>${arr.fos}`:"";
+	    ishow.innerHTML +=arr.pno? `<b>Phone: </b>${arr.pno}`:"";
+			ishow.innerHTML += `<div class="text-primary mt-2 border-bottom border-primary mb-3 p-2">Identifiers</div>`;
+	    ishow.innerHTML +=arr.loe? `<b>Level of Education: </b>${arr.loe}`:"";
+	    ishow.innerHTML +=arr.yoe? `<b>Years of Expriance: </b>${arr.yoe}`:"";
+	    ishow.innerHTML +=arr.yog? `<b>Year of Graduation: </b>${arr.yog}`:"";
+	    ishow.innerHTML +=arr.age? `<b>Age: </b>${arr.age}`:"";
+	    ishow.innerHTML +=arr.eml? `<b>Email: </b>${arr.eml}`:"";
+	    ishow.innerHTML +=arr.adr? `<b>Current Living Address: </b>${arr.adr}`:"";
+	    ishow.innerHTML +=arr.nat? `<b>Nationality: </b>${arr.nat}`:"";
+	    ishow.innerHTML +=arr.dis? `<b>Disability: </b>${arr.dis}`:"";
+	    ishow.innerHTML +=arr.dde? `<b>Disability Explanation: </b>${arr.dde}`:"";
+			ishow.innerHTML += `<div class="text-primary mt-2 border-bottom border-primary mb-3 p-2">Work Based Informations</div>`;
+	    ishow.innerHTML +=arr.djh? `<b>Date of Joining Hyranzi: </b>${arr.djh}`:"";
+	    ishow.innerHTML +=arr.sry? `<b>Current Gross Salery: </b>${arr.sry}`:"";
+	    ishow.innerHTML +=arr.wdu? `<b>Working Department Under: </b>${arr.wdu}`:"";
+			ishow.innerHTML += `<div class="text-primary mt-2 border-bottom border-primary mb-3 p-2">Emergency Times Information</div>`;
+	    ishow.innerHTML +=arr.enm? `<b>Full Name: </b>${arr.enm}`:"";
+	    ishow.innerHTML +=arr.ern? `<b>Relation: </b>${arr.ern}`:"";
+	    ishow.innerHTML +=arr.epno? `<b>Phone: </b>${arr.epno}`:"";
+	    ishow.innerHTML +=arr.eadr? `<b>Living Address: </b>${arr.eadr}`:"";
+			ishow.innerHTML += `<div class="text-primary mt-2 border-bottom border-primary mb-3 p-2">Additional Information</div>`;
+	    ishow.innerHTML +=arr.mtdes? `<b>Description about the teacher: </b>${arr.mtdes}`:"";
+		  var emName = arr.enm? arr.enm : '';
+		  var emPhone = arr.epno? arr.epno : '';
+		  var emAddress = arr.eadr? arr.eadr : '';
+		  var emRelation = arr.ern? arr.ern : '';
+			document.querySelectorAll(".stimg")[1].src=arr.image? arr.image : 'assets/img/no-avatar_male.jpg';
+		  document.querySelector(".idin").innerHTML=ishow[1].innerHTML+"<br>"+ishow[10].innerHTML+" &nbsp; | &nbsp; "+ishow[3].innerHTML+"<br>"+ishow[4].innerHTML+"<br><b>Work:</b> Teaching"+"<br><b>Emergency:</b><br>Name: "+emName+" | Relation: "+emRelation+"<br>Phone: "+emPhone+" | Address: "+emAddress;
+		  document.querySelector(".id-footer").innerHTML=`ID Reg: ${new Date().toLocaleDateString('en-GB')} GC. &nbsp; Exp: &nbsp; ${new Date(new Date().setFullYear(new Date().getFullYear()+1)).toLocaleDateString('en-GB')} GC.`;
+		}
+	</script>
+
+	<script>
+															
+/*Gradient Chart*/
+var options3 = {
+	series: [0],
+	chart: {
+		height: 350,
+		type: 'radialBar',
+		toolbar: {
+			show: true
+		},
+    animations: {
+      enabled: true,
+      speed: 120,
+      dynamicAnimation: { enabled: true, speed: 120 }
+    }
+	},
+	plotOptions: {
+		radialBar: {
+			startAngle: -135,
+			endAngle: 225,
+			hollow: {
+				margin: 0,
+				size: '70%',
+				background: '#fff',
+				image: undefined,
+				imageOffsetX: 0,
+				imageOffsetY: 0,
+				position: 'front',
+				dropShadow: {
+					enabled: true,
+					top: 3,
+					left: 0,
+					blur: 4,
+					opacity: 0.24
+				}
+			},
+			track: {
+				background: '#fff',
+				strokeWidth: '67%',
+				margin: 0, // margin is in pixels
+				dropShadow: {
+					enabled: true,
+					top: -3,
+					left: 0,
+					blur: 4,
+					opacity: 0.35
+				}
+			},
+
+			dataLabels: {
+				show: true,
+				name: {
+					offsetY: -10,
+					show: true,
+					color: '#888',
+					fontSize: '17px'
+				},
+				value: {
+					formatter: function(val) {
+						return val + "%";
+					},
+					color: '#111',
+					fontSize: '36px',
+					show: true,
+				}
+			}
+		}
+	},
+	fill: {
+		type: 'gradient',
+		gradient: {
+			shade: 'dark',
+			type: 'horizontal',
+			shadeIntensity: 0.5,
+			gradientToColors: ['#ABE5A1'],
+			inverseColors: true,
+			opacityFrom: 1,
+			opacityTo: 1,
+			stops: [0, 100]
+		}
+	},
+	stroke: {
+		lineCap: 'round'
+	},
+	labels: ['Creating Student'],
+	colors: ['#1ab7ea', '#0084ff', '#39539E', '#0077B5'],
+	
+};
+
+var chart3 = new ApexCharts(document.querySelector("#radial_chart_5"), options3);
+chart3.render();
+													
+													</script>
+</body>
+</html>

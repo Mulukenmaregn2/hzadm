@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta Tags -->
+	<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hyranzi School System</title>
+    <meta name="description" content="A modern school with modern system"/>
+    
+	<!-- Favicon -->
+    <link rel="shortcut icon" href="assets/img/hz_logo_sm.png">
+    <link rel="icon" href="assets/img/hz_logo_sm.png" type="image/x-icon">
+	
+	<!-- Daterangepicker CSS -->
+    <link href="assets/css/daterangepicker.css" rel="stylesheet" type="text/css" />
+
+	<!-- Data Table CSS -->
+    <link href="assets/css/dataTables.bootstrap5.min.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/responsive.bootstrap5.min.css" rel="stylesheet" type="text/css" />
+
+	<!-- CSS -->
+    <link href="assets/css/style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+	<!-- Wrapper -->
+	<div class="hk-wrapper" data-layout="vertical" data-layout-style="default" data-menu="light" data-footer="simple">
+		<!-- Top Navbar -->
+		<nav class="hk-navbar navbar navbar-expand-xl navbar-light fixed-top">
+			<div class="container-fluid">
+			<!-- Start Nav -->
+			<div class="nav-start-wrap">
+				<button class="btn btn-icon btn-rounded btn-flush-dark flush-soft-hover navbar-toggle d-xl-none"><span class="icon"><span class="feather-icon"><i data-feather="align-left"></i></span></span></button>
+					
+				<!-- Search -->
+				<form class="dropdown navbar-search">
+					<div class="dropdown-toggle no-caret" data-bs-toggle="dropdown" data-dropdown-animation data-bs-auto-close="outside">
+						<a href="#" class="btn btn-icon btn-rounded btn-flush-dark flush-soft-hover  d-xl-none"><span class="icon"><span class="feather-icon"><i data-feather="search"></i></span></span></a>
+						<div class="input-group d-xl-flex d-none">
+							<span class="input-affix-wrapper input-search affix-border">
+								<input type="text" class="form-control  bg-transparent"  data-navbar-search-close="false" placeholder="Search..." aria-label="Search">
+								
+							</span>
+						</div>
+					</div>
+				</form>
+				<!-- /Search -->
+			</div>
+			<!-- /Start Nav -->
+			
+			<!-- End Nav -->
+			<div class="nav-end-wrap">
+			</div>
+			<!-- /End Nav -->
+			</div>									
+		</nav>
+		<!-- /Top Navbar -->
+
+    <!-- Vertical Nav -->
+    <div class="hk-menu">
+			<!-- Brand -->
+			<div class="menu-header">
+				<span>
+					<a class="navbar-brand d-flex align-items-center" href="index.html">
+						<img class="brand-img img-fluid" style="width: 45px; height: 45px; margin-right: 10px;" src="assets/img/hz_logo_md.png" alt="brand" />
+						<div class="d-inline-block nav-link-text">
+							<b class="mb-0" style="color: #9b5e02; margin-bottom: 0px;">Hyranzi</b>
+							<div class="fs-7 text-muted mt-0">School System</div>
+						</div>
+					</a>
+					<button class="btn btn-icon btn-rounded btn-flush-dark flush-soft-hover navbar-toggle">
+						<span class="icon">
+							<span class="svg-icon fs-5">
+								<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-bar-to-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+									<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+									<line x1="10" y1="12" x2="20" y2="12"></line>
+									<line x1="10" y1="12" x2="14" y2="16"></line>
+									<line x1="10" y1="12" x2="14" y2="8"></line>
+									<line x1="4" y1="4" x2="4" y2="20"></line>
+								</svg>
+							</span>
+						</span>
+					</button>
+				</span>
+			</div>
+			<!-- /Brand -->
+
+			<!-- Main Menu -->
+			<div data-simplebar class="nicescroll-bar">
+			</div>
+			<!-- /Main Menu -->
+		</div>
+        <div id="hk_menu_backdrop" class="hk-menu-backdrop"></div>
+        <!-- /Vertical Nav -->
+
+
+		<!-- Main Content -->
+		<div class="hk-pg-wrapper">
+			<div class="container-xxl">
+				<!-- Page Header -->
+				<div class="hk-pg-header pg-header-wth-tab pt-7">
+					<div class="d-flex">
+						<div class="d-flex flex-wrap justify-content-between flex-1">
+							<div class="mb-lg-0 mb-2 me-8">
+								<h1 class="pg-title"><i class="ri-git-merge-line me-1"></i>Teacher Allocation</h1>
+								<p>Allocate teachers to their teaching class and subject.</p>
+							</div>
+						</div>
+					</div>
+					<ul class="nav nav-line nav-light nav-tabs border-bottom">
+						<li class="nav-item">
+							<a class="nav-link active" data-bs-toggle="tab" href="#">
+								<span class="nav-link-text">Grade 9</span>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" data-bs-toggle="tab" href="#">
+								<span class="nav-link-text">Grade 10</span>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" data-bs-toggle="tab" href="#">
+								<span class="nav-link-text">Grade 11 Natural</span>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" data-bs-toggle="tab" href="#">
+								<span class="nav-link-text">Grade 11 Social</span>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" data-bs-toggle="tab" href="#">
+								<span class="nav-link-text">Grade 12 Natural</span>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" data-bs-toggle="tab" href="#">
+								<span class="nav-link-text">Grade 12 Social</span>
+							</a>
+						</li>
+					</ul>
+				</div>
+				<!-- /Page Header -->
+
+				<!-- Page Body -->
+				<div class="card text-center mt-2">
+          <div class="card-header bg-primary-light-4">
+            <ul class="nav nav-tabs card-header-tabs">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="true" href="#">Grade 9A</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Grade 9B</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Grade 9C</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Grade 9D</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+              </li>
+            </ul>
+          </div>
+          <div class="card-body p-0">
+						<div class="table-responsive">
+							<table class="table table-hover table-striped table-bordered mb-0">
+								<thead>
+									<tr>
+										<th>Subject</th>
+										<th>Teacher</th>
+										<th>Action</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Mathematics</td>
+										<td>None</td>
+										<td><button class="btn btn-primary btn-sm">Assign</button></td>
+									</tr>
+									<tr>
+										<td>Physics</td>
+										<td>Jane Smith(handeled 5 classes with 6 hours onn monday(2-3) wednesday(3-4) and friday(4-5))</td>
+										<td><button class="btn btn-primary btn-sm">Assign</button></td>
+									</tr>
+									<!-- Add more rows as needed -->
+								</tbody>
+							</table>
+						</div>
+          </div>
+        </div>
+		<!-- /Main Content -->
+	</div>
+    <!-- /Wrapper -->
+    <script src="assets/js/sidebar.js"></script>
+		<script type="module" src="assets/js/side.state.js"></script>
+		<script>
+			gowindow('Teacher Allocation');
+		</script>
+	<!-- jQuery -->
+    <script src="assets/js/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JS -->
+   	<script src="assets/js/bootstrap.bundle.min.js"></script>
+
+    <!-- FeatherIcons JS -->
+    <script src="assets/js/feather.min.js"></script>
+
+    <!-- Fancy Dropdown JS -->
+    <script src="assets/js/dropdown-bootstrap-extended.js"></script>
+
+	<!-- Simplebar JS -->
+	<script src="assets/js/simplebar.min.js"></script>
+	
+	<!-- Data Table JS -->
+    <script src="assets/js/dataTables.min.js"></script>
+    <script src="assets/js/dataTables.bootstrap5.min.js"></script>
+	<script src="assets/js/dataTables.select.min.js"></script>
+
+	<!-- Daterangepicker JS -->
+    <script src="assets/js/moment.min.js"></script>
+	<script src="assets/js/daterangepicker.js"></script>
+	<script src="assets/js/daterangepicker-data.js"></script>
+
+	<!-- Amcharts Maps JS -->
+	<script src="lib/5/index.js"></script>
+	<script src="lib/5/map.js"></script> 
+	<script src="lib/5/geodata/worldLow.js"></script>
+	<script src="lib/5/themes/Animated.js"></script>
+
+	<!-- Apex JS -->
+	<script src="assets/js/apexcharts.min.js"></script>
+
+	<!-- Init JS -->
+	<script src="assets/js/init.js"></script>
+	<script src="assets/js/chips-init.js"></script>
+	<script src="assets/js/dashboard-data.js"></script>
+</body>
+</html>

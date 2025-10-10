@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta Tags -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hyranzi School System</title>
+    <meta name="description" content="A modern school with modern system"/>
+    
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="assets/img/hz_logo_sm.png">
+    <link rel="icon" href="assets/img/hz_logo_sm.png" type="image/x-icon">
+    
+    <!-- Daterangepicker CSS -->
+    <link href="assets/css/daterangepicker.css" rel="stylesheet" type="text/css" />
+
+    <!-- Data Table CSS -->
+    <link href="assets/css/dataTables.bootstrap5.min.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/responsive.bootstrap5.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- CSS -->
+    <link href="assets/css/style.css" rel="stylesheet" type="text/css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+        <style>
+            .nav {
+  white-space: nowrap;      /* Prevent wrapping */
+  overflow-x: auto;         /* Enable horizontal scroll */
+  -webkit-overflow-scrolling: touch; /* Smooth scrolling on mobile */
+}
+.nav::-webkit-scrollbar {
+  display: none; /* Hide scrollbar for a cleaner look */
+}
+        </style>
+        
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-database.js"></script>
+</head>
+<body>
+    <!-- Wrapper -->
+    <div class="hk-wrapper" data-layout="vertical" data-layout-style="default" data-menu="light" data-footer="simple">
+        <!-- Top Navbar -->
+        <nav class="hk-navbar navbar navbar-expand-xl navbar-light fixed-top">
+            <div class="container-fluid">
+            <!-- Start Nav -->
+            <div class="nav-start-wrap">
+                <button class="btn btn-icon btn-rounded btn-flush-dark flush-soft-hover navbar-toggle d-xl-none"><span class="icon"><span class="feather-icon"><i data-feather="align-left"></i></span></span></button>
+                    
+                <!-- Search -->
+                <form class="dropdown navbar-search">
+                    <div class="dropdown-toggle no-caret" data-bs-toggle="dropdown" data-dropdown-animation data-bs-auto-close="outside">
+                        <a href="#" class="btn btn-icon btn-rounded btn-flush-dark flush-soft-hover  d-xl-none"><span class="icon"><span class="feather-icon"><i data-feather="search"></i></span></span></a>
+                        <div class="input-group d-xl-flex d-none">
+                            <span class="input-affix-wrapper input-search affix-border">
+                                <input type="text" class="form-control  bg-transparent"  data-navbar-search-close="false" placeholder="Search..." aria-label="Search">
+                                
+                            </span>
+                        </div>
+                    </div>
+                </form>
+                <!-- /Search -->
+            </div>
+            <!-- /Start Nav -->
+            
+            <!-- End Nav -->
+            <div class="nav-end-wrap">
+            </div>
+            <!-- /End Nav -->
+            </div>									
+        </nav>
+        <!-- /Top Navbar -->
+
+    <!-- Vertical Nav -->
+    <div class="hk-menu">
+            <!-- Brand -->
+            <div class="menu-header">
+                <span>
+                    <a class="navbar-brand d-flex align-items-center" href="index.html">
+                        <img class="brand-img img-fluid" style="width: 45px; height: 45px; margin-right: 10px;" src="assets/img/hz_logo_md.png" alt="brand" />
+                        <div class="d-inline-block nav-link-text">
+                            <b class="mb-0" style="color: #9b5e02; margin-bottom: 0px;">Hyranzi</b>
+                            <div class="fs-7 text-muted mt-0">School System</div>
+                        </div>
+                    </a>
+                    <button class="btn btn-icon btn-rounded btn-flush-dark flush-soft-hover navbar-toggle">
+                        <span class="icon">
+                            <span class="svg-icon fs-5">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-bar-to-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                    <line x1="10" y1="12" x2="20" y2="12"></line>
+                                    <line x1="10" y1="12" x2="14" y2="16"></line>
+                                    <line x1="10" y1="12" x2="14" y2="8"></line>
+                                    <line x1="4" y1="4" x2="4" y2="20"></line>
+                                </svg>
+                            </span>
+                        </span>
+                    </button>
+                </span>
+            </div>
+            <!-- /Brand -->
+
+            <!-- Main Menu -->
+            <div data-simplebar class="nicescroll-bar">
+            </div>
+            <!-- /Main Menu -->
+        </div>
+        <div id="hk_menu_backdrop" class="hk-menu-backdrop"></div>
+        <!-- /Vertical Nav -->
+
+
+        <!-- Main Content -->
+        <div class="hk-pg-wrapper">
+            <div class="container-xxl">
+                <!-- Page Header -->
+                <div class="hk-pg-header pg-header-wth-tab pt-7">
+                    <div class="d-flex">
+                        <div class="d-flex flex-wrap justify-content-between flex-1">
+                            <div class="mb-lg-0 mb-2 me-8">
+                                <h1 class="pg-title"><i class="ri-contacts-fill me-1"></i>Students List</h1>
+                                <p>Get all students data here..</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="fs-6 mt-1 text-primary">Batch</div>
+                    <ul class="mt-0 pb-1 nav nav-pills nav-icon nav-tabs border-bottom flex-nowrap overflow-auto yrs">
+            <span class="text-primary infoyrs">Loading...</span>
+          </ul>
+                </div>
+                <!-- /Page Header -->
+
+                
+                <!-- Page Body -->
+                <div class="row hk-pg-body p-0">
+                  <!-- /Page Body -->	
+                     <div class="col-xl-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h6 class="card-title">Students List (<span class="text-primary fs-7 fw-medium tbinfos"></span>)</h6>
+                            </div>
+                            <div class="card-body p-0">
+                                <div class="table-responsive">
+                                    <table id="studentsTable" class="table table-striped table-bordered w-100">
+                                        <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Student ID</th>
+                                                <th>Student Name and Photo</th>
+                                                <th>Phone & Email</th>
+                                                <th>Class and Allocation</th>
+                                                <th>Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>	
+            </div>
+            
+            <!-- Page Footer -->
+            <div class="hk-footer">
+                <footer class="container-xxl footer">
+                    <div class="row">
+                        <div class="col-xl-8">
+                            <p class="footer-text"><span class="copy-text">Hayranzi © 2025 All rights reserved.</span> <a href="#" class="" target="_blank">Privacy Policy</a><span class="footer-link-sep">|</span><a href="#" class="" target="_blank">T&C</a><span class="footer-link-sep">|</span><a href="#" class="" target="_blank">System Status</a></p>
+                        </div>
+                    </div>
+                </footer>
+      </div>
+      <!-- / Page Footer -->
+        </div>
+        
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+      <div id="toastMessage" class="toast align-items-center text-bg-danger border-0" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="d-flex">
+          <div class="toast-body">
+            Please get the verification code first / click "send" to get the code
+          </div>
+          <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+      </div>
+    </div>
+        <!-- /Main Content -->
+    </div>
+    <!-- /Wrapper -->
+    <script src="assets/js/sidebar.js"></script>
+        <script type="module" src="assets/js/side.state.js"></script>
+        <script>
+            gowindow('Students List');
+        </script>
+
+    <!-- jQuery -->
+    <script src="assets/js/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JS -->
+       <script src="assets/js/bootstrap.bundle.min.js"></script>
+
+    <!-- FeatherIcons JS -->
+    <script src="assets/js/feather.min.js"></script>
+
+    <!-- Fancy Dropdown JS -->
+    <script src="assets/js/dropdown-bootstrap-extended.js"></script>
+
+    <!-- Simplebar JS -->
+    <script src="assets/js/simplebar.min.js"></script>
+    
+    <!-- Data Table JS -->
+    <script src="assets/js/dataTables.min.js"></script>
+    <script src="assets/js/dataTables.bootstrap5.min.js"></script>
+    <script src="assets/js/dataTables.select.min.js"></script>
+
+    <!-- Daterangepicker JS -->
+    <script src="assets/js/moment.min.js"></script>
+    <script src="assets/js/daterangepicker.js"></script>
+    <script src="assets/js/daterangepicker-data.js"></script>
+
+    <!-- Amcharts Maps JS -->
+    <script src="lib/5/map.js"></script> 
+    <script src="lib/5/geodata/worldLow.js"></script>
+    <script src="lib/5/themes/Animated.js"></script>
+
+    <!-- Apex JS -->
+    <script src="assets/js/apexcharts.min.js"></script>
+
+    <!-- Init JS -->
+    <script src="assets/js/init.js"></script>
+    <script src="assets/js/chips-init.js"></script>
+    <script type="module">
+        async function getYears() {
+            try {
+                    console.debug('getYears: fetching years...');
+                    const res = await fetch(
+                        "https://hyranzi-default-rtdb.firebaseio.com/Students List.json?shallow=true"
+                    );
+                    const data = await res.json();
+                    console.debug('getYears: fetched', data);
+                    if (!data || Object.keys(data).length === 0) {
+                        document.querySelector('.yrs').innerHTML = `<span class="text-danger">No years found.</span>`;
+                        return; // nothing to load
+                    }
+                const yearsArr = Object.keys(data).sort((a, b) => Number(b) - Number(a));
+        document.querySelector('.yrs').innerHTML = ``;
+        // default to the first (latest) year
+        const defaultYear = yearsArr[0];
+        yearsArr.forEach((year,index) => {
+              const isActive = year == defaultYear ? 'nav-link active' : 'nav-link';
+              document.querySelector('.yrs').innerHTML += `
+                  <li class="nav-item">
+                      <a class="${isActive}" data-year="${year}" href="#">
+                          <span class="nav-link-text">${year}</span>
+                      </a>
+                  </li>`;
+        });
+        // load the default year once
+        if (defaultYear) rundata(defaultYear);
+      } catch (error) {
+        document.querySelector('.yrs').innerHTML = `<span class="text-danger">Error loading datas.</span>`;
+        console.error(error);
+      }
+    }
+        async function rundata(yr){
+            document.querySelector('.tbinfos').innerText = "Loading data...";
+            document.querySelector("tbody").innerHTML=`<tr><td colspan="6" class="text-center text-primary">Loading data...</td></tr>`;
+            try {
+        const res2 = await fetch(
+          "https://hyranzi-default-rtdb.firebaseio.com/Students List/"+yr+".json"
+        );
+        const data2 = await res2.json();
+                if (!data2 || Object.keys(data2).length === 0) {
+                            console.debug('rundata: no students for', yr, data2);
+                            document.querySelector("tbody").innerHTML = `<tr><td colspan="6" class="text-center text-danger">No students found for the year ${yr}.</td></tr>`;
+                            document.querySelector('.tbinfos').innerText = "No data found for the year "+yr;
+                            return; // stop further processing
+                        } else {
+                            document.querySelector('.tbinfos').innerText = "Total Students: "+Object.keys(data2).length+" for the year "+yr;
+                            document.querySelector("tbody").innerHTML = ``;
+                        }
+          Object.keys(data2).forEach((key,index) => {
+                    var y = data2[key];
+              document.querySelector("tbody").innerHTML+=`
+                                            <tr>
+                                                <td>${index+1}</td>
+                                                <td>${y.sid||'N/A'}</td>
+                                                <td>
+                                                    <div>
+                                                        <span class="fw-medium">${y.fnm? (y.fnm).split(":").join(' '):'N/A'}</span>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="d-flex flex-column">
+                                                        <span class="text-muted"><i class="ri ri-phone-line"></i>${y.pno||'N/A'}</span>
+                                                        <span class="text-muted"><i class="ri ri-mail-open-line"></i>${y.eml||'N/A'}</span>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="d-flex flex-column">
+                                                        <div style="width:150px;" class="text-muted d-block"><i class="ri ri-building-2-line"></i> Class-${y.gr||'Not Allocated'}</div>
+                                                        <div class="text-muted"><i class="ri ri-map-pin-2-line"></i> Section-${y.sec||'Not Allocated'}</div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="d-flex">
+                                                        <a href="student_profile.html" class="btn btn-icon btn-rounded btn-outline-primary me-1" title="View Profile"><span class="icon"><span class="feather-icon"><i data-feather="eye"></i></span></span></a>
+                                                        <a href="student_edit.html" class="btn btn-icon btn-rounded btn-outline-warning me-1" title="Edit Student"><span class="icon"><span class="feather-icon"><i data-feather="edit"></i></span></span></a>
+                                                        <a href="#" class="btn btn-icon btn-rounded btn-outline-danger" title="Delete Student"><span class="icon"><span class="feather-icon"><i data-feather="trash-2"></i></span></span></a>
+                                                    </div>
+                                                </td>
+                                            </tr>`;
+          });
+                feather.replace();
+
+                // No DataTable init here (reverted to previous behavior)
+      } catch (error) {
+         console.error('rundata error for', yr, error);
+         document.querySelector("tbody").innerHTML = `<tr><td colspan="6" class="text-center text-danger">Error loading students for the year ${yr}.</td></tr>`;
+         document.querySelector('.tbinfos').innerText = "Error loading data for the year "+yr;
+      }
+    }
+
+        await getYears();
+        // Delegate clicks: listen on .yrs and handle clicks on links
+        document.querySelector('.yrs').addEventListener('click', function(e){
+            const a = e.target.closest('a[data-year]');
+            if (!a) return;
+            // mark active link
+            document.querySelectorAll('.yrs a').forEach(x => x.classList.remove('active'));
+            a.classList.add('active');
+            const year = a.getAttribute('data-year');
+            if (year) rundata(year);
+        });
+        function showToast(val) {
+            const toastElement = document.getElementById("toastMessage");
+            const toast = new bootstrap.Toast(toastElement);
+            document.querySelector(".toast-body").innerText = val;
+            toast.show();
+        }
+				showToast("welcome to hyranzi school system");
+				
+	</script>
+</body>
+</html>
